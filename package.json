@@ -11,7 +11,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "NODE_ENV=test mocha --require babel-register **/test.js"
+    "test": "NODE_ENV=test mocha --require babel-register \"src/**/*test.js\""
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -21,6 +21,7 @@
     "eslint": "^4.11.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.4.0",
+    "gltf-validator": "^2.0.0-dev.1.6",
     "mocha": "^4.0.1",
     "prettier": "^1.9.2",
     "rollup": "^0.51.8",
