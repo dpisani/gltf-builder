@@ -2,7 +2,7 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it } from 'mocha';
 
-import Asset from '../asset';
+import Asset from '../components/asset';
 
 describe('Asset generator', () => {
   it('generates valid GLTF', () => {

@@ -30,5 +30,9 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "should": "^13.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "should-sinon": "^0.0.6",
+    "sinon": "^4.2.2"
+  }
 }
