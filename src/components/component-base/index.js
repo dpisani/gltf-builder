@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash';
+import { cloneDeep, pickBy } from 'lodash';
 
 export default class ComponentBase {
   constructor() {
@@ -6,6 +6,6 @@ export default class ComponentBase {
   }
 
   build() {
-    return cloneDeep(this.properties);
+    return cloneDeep(pickBy(this.properties, p => p));
   }
 }

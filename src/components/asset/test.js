@@ -22,6 +22,25 @@ describe('Asset', () => {
     generated.asset.should.have.property('version', '2.0');
   });
 
+  it('represents indexed entities at the top level', () => {
+    const sceneStub = {
+      build: indexer => {
+        indexer.indexOf('plumbus', {});
+        indexer.indexOf('schmeckel', {});
+        indexer.indexOf('schmeckel', {});
+      }
+    };
+
+    asset.addScene(sceneStub);
+
+    const generated = asset.build();
+
+    generated.should.have.property('plumbus');
+    generated.should.have.property('schmeckel');
+    generated.plumbus.length.should.equal(1);
+    generated.schmeckel.length.should.equal(2);
+  });
+
   describe('contains a list of scenes', () => {
     it('has no scenes property by default', () => {
       asset.build().should.not.have.property('scenes');

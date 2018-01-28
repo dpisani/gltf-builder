@@ -10,7 +10,7 @@
     ],
     "env": {
       "test": {
-        "presets": ["env"]
+        "presets": ["env", "stage-2"]
       }
     }
 }

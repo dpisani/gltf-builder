@@ -1,5 +1,7 @@
-import { cloneDeepWith, isFunction } from 'lodash';
+import { cloneDeepWith, isFunction, pickBy } from 'lodash';
 import ComponentBase from '../component-base/';
+
+import Indexer from './indexer.js';
 
 export default class Asset extends ComponentBase {
   constructor() {
@@ -13,15 +15,27 @@ export default class Asset extends ComponentBase {
   }
 
   build() {
+    const indexer = new Indexer();
+
     const customizer = value => {
       if (!value.build || !isFunction(value.build)) {
         return undefined;
       }
 
-      return value.build();
+      return value.build(indexer);
     };
 
-    return cloneDeepWith(this.properties, customizer);
+    const builtProperties = cloneDeepWith(this.properties, customizer);
+    const builtIndices = cloneDeepWith(indexer.getIndexedObjects(), customizer);
+
+    return { ...builtProperties, ...builtIndices };
+  }
+
+  getIndexers() {
+    const indexedProperties = {
+      scenes: this.properties.scenes
+    };
+    return new Indexer(pickBy(indexedProperties, p => p !== undefined));
   }
 
   addScene(scene) {

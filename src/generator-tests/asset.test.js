@@ -4,8 +4,8 @@ import { describe, it } from 'mocha';
 
 import Asset from '../components/asset';
 
-describe('Asset generator', () => {
-  it('generates valid GLTF', () => {
+describe('Asset generator GLTF output', () => {
+  it('is valid with no attributes set', () => {
     const asset = new Asset();
     const generated = JSON.stringify(asset.build());
 
