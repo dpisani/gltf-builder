@@ -34,4 +34,17 @@ describe('Node generator GLTF output', () => {
 
     validator.validateString(JSON.stringify(generated)).should.be.resolved();
   });
+
+  it('is valid with children added', () => {
+    const child = new Node().name('node2');
+    node.name('node1').addChild(child);
+
+    const generated = asset.build();
+
+    generated.nodes.length.should.equal(2);
+    generated.nodes[0].name.should.equal('node1');
+    generated.nodes[1].name.should.equal('node2');
+    generated.nodes[0].children[0].should.equal(1);
+    validator.validateString(JSON.stringify(generated)).should.be.resolved();
+  });
 });

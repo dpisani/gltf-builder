@@ -7,9 +7,11 @@ import Asset from './';
 
 describe('Asset', () => {
   let asset;
+
   beforeEach(() => {
     asset = new Asset();
   });
+
   it('contains an asset section', () => {
     const generated = asset.build();
 
@@ -23,17 +25,14 @@ describe('Asset', () => {
   });
 
   it('represents indexed entities at the top level', () => {
-    const sceneStub = {
-      build: indexer => {
-        indexer.indexOf('plumbus', {});
-        indexer.indexOf('schmeckel', {});
-        indexer.indexOf('schmeckel', {});
-      }
+    const indexerStub = {
+      indexAndBuild: stub().returns({
+        plumbus: ['p1'],
+        schmeckel: ['s1', 's2']
+      })
     };
 
-    asset.addScene(sceneStub);
-
-    const generated = asset.build();
+    const generated = asset.build(indexerStub);
 
     generated.should.have.property('plumbus');
     generated.should.have.property('schmeckel');

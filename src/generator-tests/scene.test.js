@@ -51,6 +51,7 @@ describe('Scene generator GLTF output', () => {
       generated.scenes[0].nodes[0].should.equal(0);
       generated.scenes[0].nodes[1].should.equal(1);
       generated.scenes[0].nodes[2].should.equal(2);
+      generated.nodes.length.should.equal(3);
       validator.validateString(JSON.stringify(generated)).should.be.resolved();
     });
   });
