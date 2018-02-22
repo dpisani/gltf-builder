@@ -6,6 +6,8 @@ export default class Node extends NamedComponent {
   addChild(child) {
     this.properties.children = this.properties.children || [];
     this.properties.children.push(child);
+
+    return this;
   }
 
   build(indexer) {

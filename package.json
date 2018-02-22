@@ -11,7 +11,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "NODE_ENV=test mocha --require babel-register \"src/**/*test.js\""
+    "test": "NODE_ENV=test mocha --require babel-register \"src/**/*test.js\"",
+    "lint": "eslint \"src/**/*.js\""
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

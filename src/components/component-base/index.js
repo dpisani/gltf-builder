@@ -12,6 +12,6 @@ export default class ComponentBase {
    * so that top level references can be obtained
    */
   build() {
-    return cloneDeep(pickBy(this.properties, p => p));
+    return cloneDeep(pickBy(this.properties, Boolean));
   }
 }

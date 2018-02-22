@@ -1,9 +1,10 @@
 import 'should';
 import 'should-sinon';
 import { describe, it, beforeEach } from 'mocha';
-import { stub } from 'sinon';
+import { stub, spy } from 'sinon';
 
 import Asset from './';
+import Indexer from './indexer';
 
 describe('Asset', () => {
   let asset;
@@ -40,6 +41,10 @@ describe('Asset', () => {
     generated.schmeckel.length.should.equal(2);
   });
 
+  it('can have its setters chained', () => {
+    asset.addScene().should.equal(asset);
+  });
+
   describe('contains a list of scenes', () => {
     it('has no scenes property by default', () => {
       asset.build().should.not.have.property('scenes');
@@ -59,6 +64,20 @@ describe('Asset', () => {
       sceneStub.build.should.be.calledOnce();
       generated.scenes.length.should.equal(1);
       generated.scenes[0].should.equal(builtScene);
+    });
+
+    it('indexes scenes before building', () => {
+      const scene1 = { build: () => 'scene1' };
+      const scene2 = { build: () => 'scene2' };
+
+      const indexer = new Indexer();
+      indexer.index = spy(indexer.index);
+
+      asset.addScene(scene1).addScene(scene2);
+
+      asset.build(indexer);
+
+      indexer.index.should.be.calledTwice();
     });
   });
 });

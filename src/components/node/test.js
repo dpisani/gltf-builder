@@ -23,6 +23,7 @@ describe('Node', () => {
 
   it('can have its setters chained', () => {
     node.name().should.equal(node);
+    node.addChild().should.equal(node);
   });
 
   describe('children', () => {

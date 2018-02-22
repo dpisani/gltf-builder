@@ -1,4 +1,3 @@
-import {pickBy, isEmpty} from 'lodash';
 export default class Indexer {
   constructor() {
     this.indices = {};
@@ -27,17 +26,19 @@ export default class Indexer {
     return this.indices;
   }
 
+  index(type, o) {
+    this.indexOf(type, o);
+  }
+
   /**
    * Returns all of the tracked indices with the JSON
    * representations of all the entities within
    */
-  indexAndBuild({ rootEntities, rootEntitiesLabel }) {
-    const builtEntities = {
-      [rootEntitiesLabel]: rootEntities.map(e => e.build(this))
-    };
+  indexAndBuild() {
+    const builtEntities = {};
 
     while (this.toBuild.length > 0) {
-      const nextEntity = this.toBuild.pop();
+      const nextEntity = this.toBuild.shift();
       const type = nextEntity.type;
       const entity = this.indices[type][nextEntity.position];
 
@@ -48,6 +49,6 @@ export default class Indexer {
       builtEntities[type].push(entity.build(this));
     }
 
-    return pickBy(builtEntities, e => !isEmpty(e));
+    return builtEntities;
   }
 }

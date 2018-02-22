@@ -21,6 +21,7 @@ describe('Scene', () => {
 
   it('can have its setters chained', () => {
     scene.name().should.equal(scene);
+    scene.addNode().should.equal(scene);
   });
 
   describe('nodes', () => {

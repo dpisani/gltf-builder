@@ -1,6 +1,6 @@
 import ComponentBase from '../component-base/';
 
-import Indexer from './indexer.js';
+import Indexer from './indexer';
 
 export default class Asset extends ComponentBase {
   constructor() {
@@ -20,10 +20,9 @@ export default class Asset extends ComponentBase {
   build(indexer) {
     const indexBuilder = indexer || new Indexer();
 
-    const builtIndices = indexBuilder.indexAndBuild({
-      rootEntities: this.properties.scenes,
-      rootEntitiesLabel: 'scenes'
-    });
+    this.properties.scenes.forEach(s => indexBuilder.index('scenes', s));
+
+    const builtIndices = indexBuilder.indexAndBuild();
 
     return { asset: this.getAssetDefinition(), ...builtIndices };
   }
@@ -32,5 +31,7 @@ export default class Asset extends ComponentBase {
     if (scene) {
       this.properties.scenes.push(scene);
     }
+
+    return this;
   }
 }
