@@ -20,7 +20,7 @@ export default class Asset extends ComponentBase {
   build(indexer) {
     const indexBuilder = indexer || new Indexer();
 
-    this.properties.scenes.forEach(s => indexBuilder.index('scenes', s));
+    this.properties.scenes.forEach(o => indexBuilder.index(o));
 
     const builtIndices = indexBuilder.indexAndBuild();
 

@@ -1,24 +1,26 @@
-import { pickBy, isUndefined } from 'lodash';
-
-import NamedComponent from '../named-component/';
+import pickBuiltProperties from '../../util/pick-built-properties';
+import NamedComponent from '../indexed-component/';
 
 export default class Node extends NamedComponent {
+  constructor() {
+    super('nodes');
+
+    this.properties = {
+      ...this.properties,
+      children: []
+    };
+  }
+
   addChild(child) {
-    this.properties.children = this.properties.children || [];
     this.properties.children.push(child);
 
     return this;
   }
 
   build(indexer) {
-    return pickBy(
-      {
-        ...this.properties,
-        children:
-          this.properties.children &&
-          this.properties.children.map(node => indexer.indexOf('nodes', node))
-      },
-      p => !isUndefined(p)
-    );
+    return pickBuiltProperties({
+      ...this.properties,
+      children: this.properties.children.map(node => indexer.indexOf(node))
+    });
   }
 }

@@ -1,4 +1,5 @@
-import { cloneDeep, pickBy } from 'lodash';
+import { cloneDeep } from 'lodash';
+import pickBuiltProperties from '../../util/pick-built-properties';
 
 export default class ComponentBase {
   constructor() {
@@ -12,6 +13,10 @@ export default class ComponentBase {
    * so that top level references can be obtained
    */
   build() {
-    return cloneDeep(pickBy(this.properties, Boolean));
+    return cloneDeep(pickBuiltProperties(this.properties));
+  }
+
+  getName() {
+    return this.constructor.name;
   }
 }

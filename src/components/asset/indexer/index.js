@@ -2,14 +2,21 @@ export default class Indexer {
   constructor() {
     this.indices = {};
     this.toBuild = [];
+
+    this.index = this.index.bind(this);
   }
 
-  indexOf(type, o) {
+  indexOf(o) {
+    if (!o.getIndexName) {
+      return undefined;
+    }
+
+    const type = o.getIndexName();
+
     let index = this.indices[type];
     if (!index) {
       index = this.indices[type] = [];
     }
-
     const id = this.indices[type].indexOf(o);
 
     if (id < 0) {
@@ -26,8 +33,8 @@ export default class Indexer {
     return this.indices;
   }
 
-  index(type, o) {
-    this.indexOf(type, o);
+  index(o) {
+    this.indexOf(o);
   }
 
   /**
