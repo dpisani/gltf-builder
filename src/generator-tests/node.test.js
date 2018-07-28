@@ -53,4 +53,15 @@ describe('Node generator GLTF output', () => {
     generated.nodes[0].children[1].should.equal(2);
     validator.validateString(JSON.stringify(generated)).should.be.resolved();
   });
+
+  it('is valid with transforms set', () => {
+    node
+      .translation(1, 2, 3)
+      .rotation(4, 5, 6, 7)
+      .scale(8, 9, 0);
+
+    const generated = asset.build();
+
+    validator.validateString(JSON.stringify(generated)).should.be.resolved();
+  });
 });

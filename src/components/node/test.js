@@ -23,7 +23,12 @@ describe('Node', () => {
 
   it('can have its setters chained', () => {
     node.name().should.equal(node);
-    node.addChild().should.equal(node);
+    node
+      .addChild()
+      .translation()
+      .rotation()
+      .scale()
+      .should.equal(node);
   });
 
   describe('children', () => {
@@ -50,6 +55,26 @@ describe('Node', () => {
       output.should.have.property('children');
       output.children.length.should.equal(2);
       output.children.should.deepEqual([42, 101]);
+    });
+  });
+
+  describe('transformations', () => {
+    it('can have its translation set', () => {
+      node.translation(1, 2, 3);
+
+      node.build().should.have.property('translation', [1, 2, 3]);
+    });
+
+    it('can have its rotation set', () => {
+      node.rotation(1, 2, 3, 4);
+
+      node.build().should.have.property('rotation', [1, 2, 3, 4]);
+    });
+
+    it('can have its scale set', () => {
+      node.scale(1, 2, 3);
+
+      node.build().should.have.property('scale', [1, 2, 3]);
     });
   });
 });

@@ -2,8 +2,10 @@ import { cloneDeep } from 'lodash';
 import pickBuiltProperties from '../../util/pick-built-properties';
 
 export default class ComponentBase {
-  constructor() {
-    this.properties = {};
+  constructor(defaultProperties) {
+    this.properties = {
+      ...(defaultProperties || {})
+    };
   }
 
   /**
@@ -14,9 +16,5 @@ export default class ComponentBase {
    */
   build() {
     return cloneDeep(pickBuiltProperties(this.properties));
-  }
-
-  getName() {
-    return this.constructor.name;
   }
 }
