@@ -1,8 +1,8 @@
 import ComponentBase from '../component-base/';
 
 export default class NamedComponent extends ComponentBase {
-  constructor(indexName) {
-    super();
+  constructor({ indexName, defaultProperties }) {
+    super(defaultProperties);
 
     this.indexName = indexName || this.constructor.name.toLowercase();
   }

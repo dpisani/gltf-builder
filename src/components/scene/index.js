@@ -1,14 +1,9 @@
 import pickBuiltProperties from '../../util/pick-built-properties';
-import IndexedComponent from '../indexed-component/';
+import NamedComponent from '../named-component/';
 
-export default class Scene extends IndexedComponent {
+export default class Scene extends NamedComponent {
   constructor() {
-    super('scenes');
-
-    this.properties = {
-      ...this.properties,
-      nodes: []
-    };
+    super({ indexName: 'scenes', defaultProperties: { nodes: [] } });
   }
 
   addNode(node) {

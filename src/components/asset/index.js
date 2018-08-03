@@ -4,10 +4,7 @@ import Indexer from './indexer';
 
 export default class Asset extends ComponentBase {
   constructor() {
-    super();
-    this.properties = {
-      scenes: []
-    };
+    super({ scenes: [] });
   }
 
   getAssetDefinition() {
@@ -22,7 +19,7 @@ export default class Asset extends ComponentBase {
 
     this.properties.scenes.forEach(o => indexBuilder.index(o));
 
-    const builtIndices = indexBuilder.indexAndBuild();
+    const builtIndices = indexBuilder.buildIndexedEntities();
 
     return { asset: this.getAssetDefinition(), ...builtIndices };
   }

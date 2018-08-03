@@ -41,7 +41,7 @@ export default class Indexer {
    * Returns all of the tracked indices with the JSON
    * representations of all the entities within
    */
-  indexAndBuild() {
+  buildIndexedEntities() {
     const builtEntities = {};
 
     while (this.toBuild.length > 0) {

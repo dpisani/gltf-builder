@@ -40,9 +40,9 @@ describe('Indexer', () => {
     });
   });
 
-  describe('indexAndBuild', () => {
+  describe('buildIndexedEntities', () => {
     it('returns an empty object when nothing has been indexed', () => {
-      indexer.indexAndBuild().should.deepEqual({});
+      indexer.buildIndexedEntities().should.deepEqual({});
     });
 
     it('builds all objects that have been indexed', () => {
@@ -52,7 +52,7 @@ describe('Indexer', () => {
 
       indexer.index(createIndexedComponent('plumbii', () => 'three'));
 
-      const output = indexer.indexAndBuild();
+      const output = indexer.buildIndexedEntities();
 
       output.schmeckels.should.containDeep(['one', 'two']);
       output.plumbii.should.containDeep(['three']);
@@ -68,7 +68,7 @@ describe('Indexer', () => {
       indexer.index(createIndexedComponent('schmeckels', () => 'four'));
 
       indexer
-        .indexAndBuild()
+        .buildIndexedEntities()
         .schmeckels.should.containDeepOrdered(['one', 'two', 'three', 'four']);
     });
 
@@ -78,7 +78,7 @@ describe('Indexer', () => {
       indexer.index(schmeckel);
       indexer.index(schmeckel);
 
-      indexer.indexAndBuild().schmeckels.should.deepEqual(['just me']);
+      indexer.buildIndexedEntities().schmeckels.should.deepEqual(['just me']);
     });
 
     it('passes itself to indexed objects', () => {
@@ -86,7 +86,7 @@ describe('Indexer', () => {
 
       indexer.index(createIndexedComponent('schmeckels', buildStub));
 
-      indexer.indexAndBuild();
+      indexer.buildIndexedEntities();
 
       buildStub.should.be.calledWith(indexer);
     });
@@ -100,7 +100,7 @@ describe('Indexer', () => {
       indexer.index(schmeckel);
 
       indexer
-        .indexAndBuild()
+        .buildIndexedEntities()
         .schmeckels.should.containDeepOrdered(['one', 'two']);
     });
   });

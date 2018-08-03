@@ -1,15 +1,10 @@
 import pickBuiltProperties from '../../util/pick-built-properties';
-import NamedComponent from '../indexed-component/';
+import NamedComponent from '../named-component/';
 import Transform from './transform';
 
 export default class Node extends NamedComponent {
   constructor() {
-    super('nodes');
-
-    this.properties = {
-      ...this.properties,
-      children: []
-    };
+    super({ indexName: 'nodes', defaultProperties: { children: [] } });
 
     this.transform = new Transform();
   }

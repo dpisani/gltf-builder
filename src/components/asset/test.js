@@ -29,7 +29,7 @@ describe('Asset', () => {
 
   it('represents indexed entities at the top level', () => {
     const indexerStub = {
-      indexAndBuild: stub().returns({
+      buildIndexedEntities: stub().returns({
         plumbus: ['p1'],
         schmeckel: ['s1', 's2']
       }),
