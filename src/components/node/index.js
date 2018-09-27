@@ -30,11 +30,18 @@ export default class Node extends NamedComponent {
     return this;
   }
 
+  mesh(mesh) {
+    this.properties.mesh = mesh;
+    return this;
+  }
+
   build(indexer) {
+    const { children, mesh, ...properties } = this.properties;
     return pickBuiltProperties({
-      ...this.properties,
-      children: this.properties.children.map(node => indexer.indexOf(node)),
-      ...this.transform.build()
+      ...properties,
+      children: children.map(node => indexer.indexOf(node)),
+      ...this.transform.build(),
+      mesh: mesh && indexer.indexOf(mesh)
     });
   }
 }

@@ -10,8 +10,8 @@ describe('Mesh', () => {
     mesh = new Mesh();
   });
 
-  it('has a primitives property by default', () => {
-    mesh.build().should.deepEqual({ primitives: [] });
+  it('has a no properties by default', () => {
+    mesh.build().should.deepEqual({});
   });
 
   it('can have a name', () => {

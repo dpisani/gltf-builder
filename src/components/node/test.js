@@ -28,6 +28,7 @@ describe('Node', () => {
       .translation()
       .rotation()
       .scale()
+      .mesh()
       .should.equal(node);
   });
 
@@ -75,6 +76,30 @@ describe('Node', () => {
       node.scale(1, 2, 3);
 
       node.build().should.have.property('scale', [1, 2, 3]);
+    });
+  });
+
+  describe('Mesh', () => {
+    const meshIndexerStub = stub()
+      .withArgs('meshes')
+      .onFirstCall()
+      .returns(42);
+
+    const indexerStub = {
+      indexOf: meshIndexerStub
+    };
+
+    it('can have a mesh set', () => {
+      const meshStub = {
+        build: stub().returns({})
+      };
+
+      node.mesh(meshStub);
+
+      const output = node.build(indexerStub);
+
+      output.should.have.property('mesh');
+      output.mesh.should.equal(42);
     });
   });
 });

@@ -2,22 +2,19 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it, beforeEach } from 'mocha';
 
-import Asset from '../components/asset';
-import Scene from '../components/scene/';
 import Node from '../components/node';
+import Mesh from '../components/mesh';
+
+import { createNodeFixture } from './fixtures';
 
 describe('Node generator GLTF output', () => {
   let asset;
-  let scene;
   let node;
 
   beforeEach(() => {
-    asset = new Asset();
-    scene = new Scene();
-    node = new Node();
-
-    scene.addNode(node);
-    asset.addScene(scene);
+    const fixture = createNodeFixture();
+    asset = fixture.asset;
+    node = fixture.node;
   });
 
   it('is valid with no attributes set when attached to a scene', () => {
@@ -59,6 +56,16 @@ describe('Node generator GLTF output', () => {
       .translation(1, 2, 3)
       .rotation(4, 5, 6, 7)
       .scale(8, 9, 0);
+
+    const generated = asset.build();
+
+    validator.validateString(JSON.stringify(generated)).should.be.resolved();
+  });
+
+  it('is valid with a mesh set', () => {
+    const mesh = new Mesh().name('mesh1');
+
+    node.mesh(mesh);
 
     const generated = asset.build();
 

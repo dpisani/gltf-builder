@@ -13,11 +13,12 @@ export default class Mesh extends NamedComponent {
   }
 
   build(indexer) {
+    const { primitives, ...properties } = this.properties;
     return {
-      ...pickBuiltProperties(this.properties),
-      primitives: this.properties.primitives.map(primitive =>
-        primitive.build(indexer)
-      )
+      ...pickBuiltProperties({
+        ...properties,
+        primitives: primitives.map(primitive => primitive.build(indexer))
+      })
     };
   }
 }

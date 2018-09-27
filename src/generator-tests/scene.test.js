@@ -2,18 +2,17 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it, beforeEach } from 'mocha';
 
-import Asset from '../components/asset';
-import Scene from '../components/scene/';
 import Node from '../components/node';
+
+import { createSceneFixture } from './fixtures';
 
 describe('Scene generator GLTF output', () => {
   let asset;
   let scene;
   beforeEach(() => {
-    asset = new Asset();
-    scene = new Scene();
-
-    asset.addScene(scene);
+    const fixture = createSceneFixture();
+    asset = fixture.asset;
+    scene = fixture.scene;
   });
   it('is valid with no attributes set', () => {
     const generated = asset.build();
