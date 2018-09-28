@@ -22,8 +22,8 @@ describe('Node', () => {
   });
 
   it('can have its setters chained', () => {
-    node.name().should.equal(node);
     node
+      .name()
       .addChild()
       .translation()
       .rotation()
