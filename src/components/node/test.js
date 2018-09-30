@@ -3,6 +3,7 @@ import { describe, it, beforeEach } from 'mocha';
 import { stub } from 'sinon';
 
 import Node from './';
+import chainMethods from '../../util/chain-methods';
 
 describe('Node', () => {
   let node;
@@ -22,14 +23,7 @@ describe('Node', () => {
   });
 
   it('can have its setters chained', () => {
-    node
-      .name()
-      .addChild()
-      .translation()
-      .rotation()
-      .scale()
-      .mesh()
-      .should.equal(node);
+    chainMethods(node).should.equal(node);
   });
 
   describe('children', () => {

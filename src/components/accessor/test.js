@@ -14,13 +14,17 @@ describe('Accessor', () => {
   });
 
   it('can have a name', () => {
-    accessor.name('node name');
+    accessor.name('accessor name');
 
-    accessor.build().should.have.property('name', 'node name');
+    accessor.build().should.have.property('name', 'accessor name');
   });
 
   it('can have its setters chained', () => {
-    accessor.name().should.equal(accessor);
+    accessor
+      .name()
+      .componentType()
+      .type()
+      .should.equal(accessor);
   });
 
   it('can have a component type', () => {
@@ -33,5 +37,11 @@ describe('Accessor', () => {
     accessor.type('SCALAR');
 
     accessor.build().should.deepEqual({ type: 'SCALAR' });
+  });
+
+  it.skip('can have a bufferView', () => {
+    accessor.bufferView();
+
+    accessor.build().should.deepEqual({});
   });
 });

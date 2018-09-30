@@ -26,9 +26,13 @@ export default class Accessor extends NamedComponent {
 
   componentType(componentType) {
     this.properties.componentType = componentType;
+
+    return this;
   }
 
   type(type) {
     this.properties.type = type;
+
+    return this;
   }
 }
