@@ -1,4 +1,5 @@
 import { describe, it, beforeEach } from 'mocha';
+import { stub } from 'sinon';
 
 import Accessor from './index';
 
@@ -39,9 +40,14 @@ describe('Accessor', () => {
     accessor.build().should.deepEqual({ type: 'SCALAR' });
   });
 
-  it.skip('can have a bufferView', () => {
-    accessor.bufferView();
+  it('can have a bufferView', () => {
+    const indexStub = { indexOf: stub().returns(42) };
+    const bufferViewStub = {
+      build: stub().returns({})
+    };
 
-    accessor.build().should.deepEqual({});
+    accessor.bufferView(bufferViewStub);
+
+    accessor.build(indexStub).should.deepEqual({ bufferView: 42 });
   });
 });

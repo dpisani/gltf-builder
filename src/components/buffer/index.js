@@ -21,7 +21,7 @@ export default class Buffer extends NamedComponent {
       if (!data) return undefined;
 
       const base64 = fromByteArray(new Uint8Array(data));
-      return `data:text/plain;base64,${base64}`;
+      return `data:application/octet-stream;base64,${base64}`;
     };
 
     return pickBuiltProperties({

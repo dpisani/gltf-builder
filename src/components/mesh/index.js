@@ -14,11 +14,9 @@ export default class Mesh extends NamedComponent {
 
   build(indexer) {
     const { primitives, ...properties } = this.properties;
-    return {
-      ...pickBuiltProperties({
-        ...properties,
-        primitives: primitives.map(primitive => primitive.build(indexer))
-      })
-    };
+    return pickBuiltProperties({
+      ...properties,
+      primitives: primitives.map(primitive => primitive.build(indexer))
+    });
   }
 }

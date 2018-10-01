@@ -29,7 +29,9 @@ describe('Buffer', () => {
 
     buffer.data(intArray.buffer);
 
-    buffer.build().should.have.property('uri', 'data:text/plain;base64,QUJD');
+    buffer
+      .build()
+      .should.have.property('uri', 'data:application/octet-stream;base64,QUJD');
   });
 
   it('should report the byteLength of the provided data', () => {

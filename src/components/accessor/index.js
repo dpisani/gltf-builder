@@ -1,4 +1,5 @@
 import NamedComponent from '../named-component/';
+import pickBuiltProperties from '../../util/pick-built-properties';
 
 export const componentTypes = {
   BYTE: 5120,
@@ -34,5 +35,17 @@ export default class Accessor extends NamedComponent {
     this.properties.type = type;
 
     return this;
+  }
+
+  bufferView(bufferView) {
+    this.properties.bufferView = bufferView;
+  }
+
+  build(indexer) {
+    const { bufferView, ...properties } = this.properties;
+    return pickBuiltProperties({
+      ...properties,
+      bufferView: bufferView && indexer.indexOf(bufferView)
+    });
   }
 }

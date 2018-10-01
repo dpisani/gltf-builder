@@ -1,4 +1,5 @@
 import { describe, it, beforeEach } from 'mocha';
+import { stub } from 'sinon';
 
 import BufferView from './index';
 import chainMethods from '../../util/chain-methods';
@@ -30,9 +31,14 @@ describe('BufferView', () => {
     bufferView.build().should.deepEqual({ byteLength: 1024 });
   });
 
-  it.skip('can have a buffer', () => {
-    bufferView.buffer();
+  it('can have a buffer', () => {
+    const indexStub = { indexOf: stub().returns(42) };
+    const bufferStub = {
+      build: stub().returns({})
+    };
 
-    bufferView.build().should.deepEqual({});
+    bufferView.buffer(bufferStub);
+
+    bufferView.build(indexStub).should.deepEqual({ buffer: 42 });
   });
 });
