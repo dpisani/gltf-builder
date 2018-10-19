@@ -40,6 +40,22 @@ describe('Accessor', () => {
     accessor.build().should.deepEqual({ type: 'SCALAR' });
   });
 
+  it('can have a min value', () => {
+    accessor.min([1, 2, 3]);
+
+    accessor.build().should.deepEqual({ min: [1, 2, 3] });
+  });
+
+  it('can have a max value', () => {
+    accessor.max([1, 2, 3]);
+
+    accessor.build().should.deepEqual({ max: [1, 2, 3] });
+  });
+
+  it.skip('matches the min value precision to the data type', () => {});
+
+  it.skip('matches the max value precision to the data type', () => {});
+
   it('can have a bufferView', () => {
     const indexStub = { indexOf: stub().returns(42) };
     const bufferViewStub = {
