@@ -3,7 +3,7 @@ export default class Indexer {
     this.indices = {};
     this.toBuild = [];
 
-    this.index = this.index.bind(this);
+    this.index = this.indexOf;
   }
 
   indexOf(o) {
@@ -33,9 +33,7 @@ export default class Indexer {
     return this.indices;
   }
 
-  index(o) {
-    this.indexOf(o);
-  }
+  accessorFor() {}
 
   /**
    * Returns all of the tracked indices with the JSON

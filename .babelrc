@@ -1,16 +1,20 @@
 {
   "presets": [
-        ["env", {
-          "targets": {
-            "browsers": ["last 2 versions", "safari >= 7"],
-            "node": "current"
-          },
-    	  "modules": false
-        }]
-    ],
-    "env": {
-      "test": {
-        "presets": ["env", "stage-2"]
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"],
+          "node": "current"
+        },
+        "modules": false
       }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"]
     }
+  },
+  "plugins": ["transform-object-rest-spread"]
 }

@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import localResolve from 'rollup-plugin-local-resolve';
 
 import pkg from './package.json';
 
@@ -16,9 +17,20 @@ export default [
     name: 'gltf-builder',
     plugins: [
       resolve(),
-      commonjs(),
       babel({
         exclude: ['node_modules/**']
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/lodash/lodash.js': [
+            'cloneDeep',
+            'pickBy',
+            'isNil',
+            'isArray',
+            'isEmpty',
+            'mapValues'
+          ]
+        }
       })
     ]
   },
@@ -36,6 +48,7 @@ export default [
       { file: pkg.module, format: 'es' }
     ],
     plugins: [
+      localResolve(),
       babel({
         exclude: ['node_modules/**']
       })
