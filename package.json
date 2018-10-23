@@ -8,6 +8,8 @@
   "author": "Dean Pisani",
   "license": "MIT",
   "private": false,
+  "repository": "github:dpisani/gltf-builder",
+  "homepage": "https://github.com/dpisani/gltf-builder",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
