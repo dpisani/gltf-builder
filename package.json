@@ -15,7 +15,8 @@
     "dev": "rollup -c -w",
     "test": "NODE_ENV=test mocha --require babel-register \"src/**/*test.js\"",
     "lint": "eslint \"src/**/*.js\"",
-    "format": "prettier --write \"src/**/*.js\""
+    "format": "prettier --write \"src/**/*.js\"",
+    "docs": "jsdoc -c jsdoc.config.json -r -d docs"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -28,6 +29,8 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.4.0",
     "gltf-validator": "^2.0.0-dev.2.5",
+    "jsdoc": "^3.5.5",
+    "jsdoc-export-default-interop": "^0.3.1",
     "mocha": "^4.0.1",
     "prettier": "^1.14.2",
     "rollup": "^0.51.8",

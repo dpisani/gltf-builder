@@ -1,16 +1,31 @@
 import NamedComponent from '../named-component/';
 import pickBuiltProperties from '../../util/pick-built-properties';
 
+/**
+ * ComponentType - Accessor component types
+ * @enum
+ */
+const componentType = {
+  BYTE: 5120,
+  UNSIGNED_BYTE: 5121,
+  SHORT: 5122,
+  UNSIGNED_SHORT: 5123,
+  UNSIGNED_INT: 5125,
+  FLOAT: 5126
+};
+
+/**
+ * Accessor - a builder for a GLTF accessor object
+ * @see {@link https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-accessor|GLTF reference}
+ */
 export default class Accessor extends NamedComponent {
+  /**
+   * @static componentTypes - Valid data types for accessors
+   *
+   * @see {@link componentType}
+   */
   static get componentTypes() {
-    return {
-      BYTE: 5120,
-      UNSIGNED_BYTE: 5121,
-      SHORT: 5122,
-      UNSIGNED_SHORT: 5123,
-      UNSIGNED_INT: 5125,
-      FLOAT: 5126
-    };
+    return componentType;
   }
 
   static get types() {
