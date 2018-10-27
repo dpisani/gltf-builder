@@ -3,7 +3,7 @@ import { describe, it, beforeEach } from 'mocha';
 import { stub } from 'sinon';
 
 import Node from './';
-import chainMethods from '../../util/chain-methods';
+import chainMethods from '../../test-util/chain-methods';
 
 describe('Node', () => {
   let node;

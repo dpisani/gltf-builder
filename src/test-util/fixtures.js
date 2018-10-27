@@ -1,7 +1,8 @@
 import Asset from '../components/asset';
-import Scene from '../components/scene/';
+import Scene from '../components/scene';
 import Node from '../components/node';
 import Mesh from '../components/mesh';
+import Primitive from '../components/primitive';
 
 export const createAssetFixture = () => new Asset();
 
@@ -30,4 +31,13 @@ export const createMeshFixture = () => {
   node.mesh(mesh);
 
   return { asset, mesh };
+};
+
+export const createPrimitiveFixture = () => {
+  const { asset, mesh } = createMeshFixture();
+  const primitive = new Primitive();
+
+  mesh.addPrimitive(primitive);
+
+  return { asset, primitive };
 };

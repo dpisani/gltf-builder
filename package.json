@@ -16,7 +16,7 @@
     "test": "NODE_ENV=test mocha --require babel-register \"src/**/*test.js\"",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
-    "docs": "jsdoc -c jsdoc.config.json -r -d docs"
+    "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

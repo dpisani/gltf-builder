@@ -1,5 +1,3 @@
-import { flow } from 'lodash';
-
 const getAllMethodNames = obj => {
   let methods = new Set();
   while ((obj = Reflect.getPrototypeOf(obj))) {

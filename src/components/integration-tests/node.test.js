@@ -2,10 +2,10 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it, beforeEach } from 'mocha';
 
-import Node from '../components/node';
-import Mesh from '../components/mesh';
+import Node from '../node';
+import Mesh from '../mesh';
 
-import { createNodeFixture } from './fixtures';
+import { createNodeFixture } from '../../test-util/fixtures';
 
 describe('Node generator GLTF output', () => {
   let asset;

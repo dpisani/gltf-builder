@@ -4,7 +4,7 @@ import { describe, it, beforeEach } from 'mocha';
 import { stub } from 'sinon';
 
 import Indexer from './';
-import createIndexedComponent from '../../../util/indexed-component-stub';
+import createIndexedComponent from '../../../test-util/indexed-component-stub';
 
 describe('Indexer', () => {
   let indexer;

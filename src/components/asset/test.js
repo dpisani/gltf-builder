@@ -6,7 +6,7 @@ import { stub, spy } from 'sinon';
 import Asset from './';
 import Indexer from './indexer';
 
-import createIndexedComponent from '../../util/indexed-component-stub';
+import createIndexedComponent from '../../test-util/indexed-component-stub';
 
 describe('Asset', () => {
   let asset;

@@ -7,3 +7,5 @@ export { default as Mesh } from './components/mesh';
 export { default as Node } from './components/node';
 export { default as Primitive } from './components/primitive';
 export { default as Scene } from './components/scene';
+
+export * from './builder-utils';

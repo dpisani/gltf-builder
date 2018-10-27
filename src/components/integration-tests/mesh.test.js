@@ -2,7 +2,7 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it, beforeEach } from 'mocha';
 
-import { createMeshFixture } from './fixtures';
+import { createMeshFixture } from '../../test-util/fixtures';
 
 describe('Mesh generator GLTF output', () => {
   let asset;

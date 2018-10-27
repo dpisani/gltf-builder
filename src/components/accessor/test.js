@@ -1,5 +1,9 @@
+import 'should';
+
 import { describe, it, beforeEach } from 'mocha';
 import { stub } from 'sinon';
+
+import chainMethods from '../../test-util/chain-methods';
 
 import Accessor from './index';
 
@@ -21,11 +25,7 @@ describe('Accessor', () => {
   });
 
   it('can have its setters chained', () => {
-    accessor
-      .name()
-      .componentType()
-      .type()
-      .should.equal(accessor);
+    chainMethods(accessor).should.equal(accessor);
   });
 
   it('can have a component type', () => {

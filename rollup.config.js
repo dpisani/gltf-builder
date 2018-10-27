@@ -28,7 +28,8 @@ export default [
             'isNil',
             'isArray',
             'isEmpty',
-            'mapValues'
+            'mapValues',
+            'flatten'
           ]
         }
       })

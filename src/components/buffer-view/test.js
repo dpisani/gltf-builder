@@ -1,8 +1,10 @@
+import 'should';
+
 import { describe, it, beforeEach } from 'mocha';
 import { stub } from 'sinon';
 
 import BufferView from './index';
-import chainMethods from '../../util/chain-methods';
+import chainMethods from '../../test-util/chain-methods';
 
 describe('BufferView', () => {
   let bufferView;

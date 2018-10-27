@@ -2,9 +2,9 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it, beforeEach } from 'mocha';
 
-import Node from '../components/node';
+import Node from '../node';
 
-import { createSceneFixture } from './fixtures';
+import { createSceneFixture } from '../../test-util/fixtures';
 
 describe('Scene generator GLTF output', () => {
   let asset;

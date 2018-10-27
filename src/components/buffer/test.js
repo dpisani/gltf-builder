@@ -1,7 +1,9 @@
+import 'should';
+
 import { describe, it, beforeEach } from 'mocha';
 
 import Buffer from './index';
-import chainMethods from '../../util/chain-methods';
+import chainMethods from '../../test-util/chain-methods';
 
 describe('Buffer', () => {
   let buffer;
