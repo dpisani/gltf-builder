@@ -86,6 +86,20 @@ export default class Accessor extends NamedComponent {
     return this;
   }
 
+  /**
+   * count - sets the count property on the accessor
+   *
+   * @param {number} count number of attributes referenced by this accessor,
+   * not to be confused with the number of bytes or number of components.
+   *
+   * @returns this
+   */
+  count(count) {
+    this.properties.count = count;
+
+    return this;
+  }
+
   build(indexer) {
     const { bufferView, ...properties } = this.properties;
     return pickBuiltProperties({

@@ -17,7 +17,8 @@ const accessorStub = createStubComponent(Accessor, [
   'componentType',
   'bufferView',
   'min',
-  'max'
+  'max',
+  'count'
 ]);
 
 const bufferStub = createStubComponent(Buffer, ['data']);
@@ -60,6 +61,10 @@ describe('positionFromPoints utility', () => {
     it('sets a BufferView on the accessor', () => {
       accessor.bufferView.should.be.calledOnce();
       accessor.bufferView.firstCall.args[0].should.be.an.instanceOf(BufferView);
+    });
+
+    it('sets a count of the number of elements in the accessor', () => {
+      accessor.count.should.be.calledWith(3);
     });
 
     describe('bufferView', () => {

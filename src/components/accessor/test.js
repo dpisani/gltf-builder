@@ -66,4 +66,10 @@ describe('Accessor', () => {
 
     accessor.build(indexStub).should.deepEqual({ bufferView: 42 });
   });
+
+  it('can have a count', () => {
+    accessor.count(42);
+
+    accessor.build().should.deepEqual({ count: 42 });
+  });
 });
