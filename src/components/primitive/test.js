@@ -25,7 +25,7 @@ describe('Primitive', () => {
     primitive.build().should.have.property('mode', 0);
   });
 
-  describe('attributes', () => {
+  describe('accessors', () => {
     let indexerStub;
 
     const accessorStub = {
@@ -34,7 +34,6 @@ describe('Primitive', () => {
 
     beforeEach(() => {
       const accessorIndexerStub = stub()
-        .withArgs('meshes')
         .onFirstCall()
         .returns(42);
 
@@ -105,6 +104,12 @@ describe('Primitive', () => {
       primitive.build(indexerStub).attributes.should.deepEqual({
         WEIGHTS_0: 42
       });
+    });
+
+    it('can have indices accessor set', () => {
+      primitive.indices(accessorStub);
+
+      primitive.build(indexerStub).should.have.property('indices', 42);
     });
   });
 });

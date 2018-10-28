@@ -2,6 +2,11 @@ import { mapValues } from 'lodash';
 import ComponentBase from '../component-base/';
 import pickBuiltProperties from '../../util/pick-built-properties';
 
+/**
+ * Primitive - A builder for the GLTF Primitive object
+ * @see {@link https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-primitive|GLTF reference}
+ * @hideconstructor
+ */
 export default class Primitive extends ComponentBase {
   static get modes() {
     return {
@@ -66,6 +71,18 @@ export default class Primitive extends ComponentBase {
     return this;
   }
 
+  /**
+   * indices - Sets the indices property on the primitive
+   *
+   * @param {accessor} indices an accessor for index data
+   *
+   * @returns this
+   */
+  indices(indices) {
+    this.properties.indices = indices;
+    return this;
+  }
+
   build(indexer) {
     const { attributes, ...properties } = this.properties;
 
@@ -73,8 +90,11 @@ export default class Primitive extends ComponentBase {
       indexer.indexOf(accessor)
     );
 
+    const { indices, ...nonIndexedProperties } = properties;
+
     return pickBuiltProperties({
-      ...properties,
+      ...nonIndexedProperties,
+      indices: indices && indexer.indexOf(indices),
       attributes: indexedAttributes
     });
   }
