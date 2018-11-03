@@ -8,7 +8,7 @@ import BufferView from '../../../components/buffer-view';
 import Accessor from '../../../components/accessor';
 
 import createStubComponent from '../../../test-util/create-stub-component';
-import positionFromPoints from './index';
+import buildPosition from './unwired';
 
 const points = [[0, 1, 0], [1, 0, 0], [0, 0, 1]];
 
@@ -34,16 +34,16 @@ const deps = {
   BufferView: bufferViewStub.StubClass
 };
 
-describe('positionFromPoints utility', () => {
+describe('buildPosition utility', () => {
   it('returns an accessor', () => {
-    positionFromPoints(points, deps).should.be.an.instanceOf(Accessor);
+    buildPosition(points, deps).should.be.an.instanceOf(Accessor);
   });
 
   describe('accessor', () => {
     let accessor;
 
     beforeEach(() => {
-      accessor = positionFromPoints(points, deps);
+      accessor = buildPosition(points, deps);
     });
 
     it('sets the correct data types on the accessor', () => {

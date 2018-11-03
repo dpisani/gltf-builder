@@ -1,2 +1,2 @@
-export * from './generate-attributes';
-export * from './generate-indices';
+export * from './primitive-utils';
+export * from './data-utils';

@@ -2,9 +2,9 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it, beforeEach } from 'mocha';
 
-import { createPrimitiveFixture } from '../../test-util/fixtures';
+import { createPrimitiveFixture } from '../../../test-util/fixtures';
 
-import { generateIndices } from '../generate-indices';
+import { buildIndices } from '../index';
 
 describe('Index generator', () => {
   let asset;
@@ -16,7 +16,7 @@ describe('Index generator', () => {
     asset = fixture.asset;
     primitive = fixture.primitive;
 
-    const position = generateIndices([0, 1, 2]);
+    const position = buildIndices([0, 1, 2]);
     primitive.indices(position);
 
     generated = asset.build();

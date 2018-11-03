@@ -2,11 +2,11 @@ import 'should';
 import validator from 'gltf-validator';
 import { describe, it, beforeEach } from 'mocha';
 
-import { createPrimitiveFixture } from '../../test-util/fixtures';
+import { createPrimitiveFixture } from '../../../test-util/fixtures';
 
-import { positionFromPoints } from '../generate-attributes';
+import { buildPosition } from '../index';
 
-describe('Primitive attribute generators', () => {
+describe('Position generator', () => {
   let asset;
   let primitive;
 
@@ -20,7 +20,7 @@ describe('Primitive attribute generators', () => {
     let generated;
 
     beforeEach(() => {
-      const position = positionFromPoints([[0, 0, 0], [1, 0, 0], [0, 1, 0]]);
+      const position = buildPosition([[0, 0, 0], [1, 0, 0], [0, 1, 0]]);
       primitive.position(position);
 
       generated = asset.build();

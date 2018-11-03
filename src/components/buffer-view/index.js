@@ -1,6 +1,11 @@
 import NamedComponent from '../named-component/';
 import pickBuiltProperties from '../../util/pick-built-properties';
 
+/**
+ * BufferView - a builder for a GLTF buffer view object
+ * @see {@link https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-bufferview|GLTF reference}
+ * @hideconstructor
+ */
 export default class BufferView extends NamedComponent {
   constructor() {
     super({ indexName: 'bufferViews' });

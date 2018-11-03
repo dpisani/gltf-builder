@@ -3,12 +3,12 @@ import 'should-sinon';
 
 import { describe, it, beforeEach } from 'mocha';
 
-import Buffer from '../../components/buffer';
-import BufferView from '../../components/buffer-view';
-import Accessor from '../../components/accessor';
+import Buffer from '../../../components/buffer';
+import BufferView from '../../../components/buffer-view';
+import Accessor from '../../../components/accessor';
 
-import createStubComponent from '../../test-util/create-stub-component';
-import generateIndices from './unwired';
+import createStubComponent from '../../../test-util/create-stub-component';
+import buildIndices from './unwired';
 
 const indices = [0, 1, 2];
 
@@ -36,14 +36,14 @@ const deps = {
 
 describe('generateIndices utility', () => {
   it('returns an accessor', () => {
-    generateIndices(indices, deps).should.be.an.instanceOf(Accessor);
+    buildIndices(indices, deps).should.be.an.instanceOf(Accessor);
   });
 
   describe('accessor', () => {
     let accessor;
 
     beforeEach(() => {
-      accessor = generateIndices(indices, deps);
+      accessor = buildIndices(indices, deps);
     });
 
     it('sets the correct data types on the accessor', () => {
