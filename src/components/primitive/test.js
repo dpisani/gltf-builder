@@ -112,4 +112,23 @@ describe('Primitive', () => {
       primitive.build(indexerStub).should.have.property('indices', 42);
     });
   });
+
+  it('can have a material set', () => {
+    const materialStub = {
+      build: stub().returns({})
+    };
+
+    const accessorIndexerStub = stub()
+      .onFirstCall()
+      .returns(42);
+
+    const indexerStub = {
+      indexOf: accessorIndexerStub
+    };
+
+    primitive
+      .material(materialStub)
+      .build(indexerStub)
+      .should.have.property('material', 42);
+  });
 });

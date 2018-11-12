@@ -74,12 +74,25 @@ export default class Primitive extends ComponentBase {
   /**
    * indices - Sets the indices property on the primitive
    *
-   * @param {accessor} indices an accessor for index data
+   * @param {Accessor} indices an accessor for index data
    *
    * @returns this
    */
   indices(indices) {
     this.properties.indices = indices;
+    return this;
+  }
+
+  /**
+   * material - Sets the material for this primitive
+   *
+   * @param {Material} material
+   *
+   * @returns this
+   */
+  material(material) {
+    this.properties.material = material;
+
     return this;
   }
 
@@ -90,11 +103,12 @@ export default class Primitive extends ComponentBase {
       indexer.indexOf(accessor)
     );
 
-    const { indices, ...nonIndexedProperties } = properties;
+    const { indices, material, ...nonIndexedProperties } = properties;
 
     return pickBuiltProperties({
       ...nonIndexedProperties,
       indices: indices && indexer.indexOf(indices),
+      material: material && indexer.indexOf(material),
       attributes: indexedAttributes
     });
   }
