@@ -4,8 +4,6 @@ import 'should-sinon';
 import { describe, it, beforeEach } from 'mocha';
 import { stub } from 'sinon';
 
-import Buffer from '../../../components/buffer';
-import BufferView from '../../../components/buffer-view';
 import Accessor from '../../../components/accessor';
 
 import createStubComponent from '../../../test-util/create-stub-component';
