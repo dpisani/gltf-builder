@@ -43,7 +43,7 @@ export default [
   // the `targets` option which can specify `dest` and `format`)
   {
     input: 'src/index.js',
-    external: ['ms'],
+    external: ['lodash', 'base64-js'],
     output: [
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'es' }
