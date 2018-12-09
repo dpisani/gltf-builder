@@ -1,4 +1,5 @@
 import NamedComponent from '../named-component/';
+import pickBuiltProperties from '../../util/pick-built-properties';
 
 /**
  * AlphaMode - Describes the alpha mode of a material
@@ -18,6 +19,13 @@ const alphaMode = {
 export default class Material extends NamedComponent {
   constructor() {
     super({ indexName: 'nodes', defaultProperties: { children: [] } });
+
+    /**
+     * @function Material#metallicRoughness
+     *
+     * @description Alias of {@link Material#pbrMetallicRoughness}
+     */
+    this.metallicRoughness = this.pbrMetallicRoughness;
   }
 
   /**
@@ -80,5 +88,29 @@ export default class Material extends NamedComponent {
     this.properties.doubleSided = doubleSided;
 
     return this;
+  }
+
+  /**
+   * pbrMetallicRoughness - Sets values used to define the metallic-roughness material
+   * model from Physically-Based Rendering (PBR) methodology.
+   *
+   * @param {MetallicRoughness} pbrMetallicRoughness a MetallicRoughness object
+   *
+   * @returns this
+   */
+  pbrMetallicRoughness(pbrMetallicRoughness) {
+    this.properties.pbrMetallicRoughness = pbrMetallicRoughness;
+
+    return this;
+  }
+
+  build() {
+    const { pbrMetallicRoughness, ...properties } = this.properties;
+
+    return pickBuiltProperties({
+      pbrMetallicRoughness:
+        pbrMetallicRoughness && pbrMetallicRoughness.build(),
+      ...properties
+    });
   }
 }

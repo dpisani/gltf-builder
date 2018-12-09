@@ -1,6 +1,7 @@
 import 'should';
 
 import { describe, it, beforeEach } from 'mocha';
+import { stub } from 'sinon';
 
 import Material from './index';
 import chainMethods from '../../test-util/chain-methods';
@@ -54,5 +55,18 @@ describe('Material', () => {
       .doubleSided(true)
       .build()
       .should.deepEqual({ doubleSided: true });
+  });
+
+  it('can have metallic roughness set', () => {
+    const metallicRoughness = {
+      build: stub().returns({ pbrMetallicRoughnessContent: true })
+    };
+
+    material
+      .pbrMetallicRoughness(metallicRoughness)
+      .build()
+      .should.deepEqual({
+        pbrMetallicRoughness: { pbrMetallicRoughnessContent: true }
+      });
   });
 });
