@@ -18,7 +18,7 @@ const alphaMode = {
  */
 export default class Material extends NamedComponent {
   constructor() {
-    super({ indexName: 'nodes', defaultProperties: { children: [] } });
+    super({ indexName: 'materials', defaultProperties: { children: [] } });
 
     /**
      * @function Material#metallicRoughness

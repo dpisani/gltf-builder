@@ -7,5 +7,9 @@ export { default as Mesh } from './components/mesh';
 export { default as Node } from './components/node';
 export { default as Primitive } from './components/primitive';
 export { default as Scene } from './components/scene';
+export { default as Material } from './components/material';
+export {
+  default as MetallicRoughness
+} from './components/material/metallic-roughness';
 
 export * from './builder-utils';
