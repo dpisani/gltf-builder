@@ -1,10 +1,11 @@
 {
   "name": "gltf-builder",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "description": "A builder for the GLTF 3D transmission format",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
+  "types": "./dist/types.d.ts",
   "author": "Dean Pisani",
   "license": "MIT",
   "private": false,
