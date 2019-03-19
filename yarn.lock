@@ -2370,6 +2370,13 @@ tryit@^1.0.1:
   resolved "https://registry.yarnpkg.com/tryit/-/tryit-1.0.3.tgz#393be730a9446fd1ead6da59a014308f36c289cb"
   integrity sha1-OTvnMKlEb9Hq1tpZoBQwjzbCics=
 
+tsd-jsdoc@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/tsd-jsdoc/-/tsd-jsdoc-2.1.3.tgz#c5f7c3c50a66e35b1ac8ff455c2f02e220b6b376"
+  integrity sha512-oAkekzbgVxjaDHLsq8ftcGhRkY9UvJQk1KKSMZQKUodGdy26zxyT4YO7RrYBf20IBFa6oZSTltZRW4j+qs6LGw==
+  dependencies:
+    typescript "^3.2.1"
+
 type-check@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
@@ -2386,6 +2393,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^3.2.1:
+  version "3.3.3333"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
+  integrity sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
 
 underscore-contrib@~0.3.0:
   version "0.3.0"

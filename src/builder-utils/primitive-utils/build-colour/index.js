@@ -21,5 +21,9 @@ export const buildColour = points =>
  * @function buildColor
  *
  * @desc an alias for {@link buildColour}
+ *
+ * @param {Vec4[]} points An array of colours.
+ *
+ * @returns {Accessor} An accessor for the colour data.
  */
 export const buildColor = buildColour;

@@ -10,7 +10,7 @@ import buildIndicesUnwired from './unwired';
  * @desc Creates an accessor for primitive indices
  * with an underlying buffer.
  *
- * @param {u_int[]} indices An array of indices.
+ * @param {number[]} indices An array of indices.
  *
  * @returns {Accessor} An accessor for a data source for the indices.
  */

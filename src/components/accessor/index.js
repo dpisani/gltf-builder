@@ -2,10 +2,11 @@ import NamedComponent from '../named-component/';
 import pickBuiltProperties from '../../util/pick-built-properties';
 
 /**
- * ComponentType - Accessor component types
+ * Accessor component types
+ * @alias AccessorComponentTypes
  * @enum {number}
  */
-const componentType = {
+const componentTypes = {
   BYTE: 5120,
   UNSIGNED_BYTE: 5121,
   SHORT: 5122,
@@ -15,7 +16,8 @@ const componentType = {
 };
 
 /**
- * AttributeType - Describes the type of data held by an accessor
+ * Describes the type of data held by an accessor
+ * @alias AccessorAttributeTypes
  * @enum {string}
  */
 const types = {
@@ -37,16 +39,15 @@ export default class Accessor extends NamedComponent {
   /**
    * @static componentTypes - Valid data types for accessors
    *
-   * @see {@link componentType}
+   * @type {AccessorComponentTypes}
    */
   static get componentTypes() {
-    return componentType;
+    return componentTypes;
   }
 
   /**
    * @static types - Valid attribute types for accessors
-   *
-   * @see {@link types}
+   * @type {AccessorAttributeTypes}
    */
   static get types() {
     return types;
@@ -92,7 +93,7 @@ export default class Accessor extends NamedComponent {
    * @param {number} count number of attributes referenced by this accessor,
    * not to be confused with the number of bytes or number of components.
    *
-   * @returns this
+   * @returns {Accessor} this
    */
   count(count) {
     this.properties.count = count;
