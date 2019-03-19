@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
-  "types": "./dist/types.d.ts",
   "author": "Dean Pisani",
   "license": "MIT",
   "private": false,
@@ -17,8 +16,7 @@
     "test": "NODE_ENV=test mocha --require babel-register \"src/**/*test.js\"",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
-    "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs",
-    "build:types": "jsdoc -c jsdoc.config.json -t node_modules/tsd-jsdoc/dist -r -d dist"
+    "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -46,7 +44,6 @@
   },
   "dependencies": {
     "base64-js": "^1.3.0",
-    "lodash": "^4.17.4",
-    "tsd-jsdoc": "^2.1.3"
+    "lodash": "^4.17.4"
   }
 }
