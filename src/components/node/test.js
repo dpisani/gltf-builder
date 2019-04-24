@@ -71,6 +71,31 @@ describe('Node', () => {
 
       node.build().should.have.property('scale', [1, 2, 3]);
     });
+
+    it('can have a matrix set', () => {
+      node.matrix([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+
+      node
+        .build()
+        .should.have.property('matrix', [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]);
+    });
   });
 
   describe('Mesh', () => {
