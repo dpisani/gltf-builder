@@ -1,5 +1,3 @@
-import { flatten } from 'lodash';
-
 export default (points, { Accessor, BufferView, Buffer }) => {
   // get min and max component values
   const min = [null, null, null];
@@ -11,8 +9,10 @@ export default (points, { Accessor, BufferView, Buffer }) => {
     }
   });
 
-  const components = flatten(points);
-  const floats = Float32Array.of(...components);
+  const floats = new Float32Array(points.length * 3);
+  points.forEach((point, i) => {
+    floats.set(point, i * 3);
+  });
 
   const buffer = new Buffer().data(floats.buffer);
   const bufferView = new BufferView()

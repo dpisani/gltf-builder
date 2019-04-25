@@ -1,11 +1,11 @@
 /**
  * A three dimensional vector.
- * @typedef {number[]} Vec3
+ * @typedef {number[] | Float32Array} Vec3
  */
 
 /**
  * A four dimensional vector.
- * @typedef {number[]} Vec4
+ * @typedef {number[] | Float32Array} Vec4
  */
 
 /**
