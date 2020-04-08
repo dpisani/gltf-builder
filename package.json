@@ -2,29 +2,51 @@
   "name": "gltf-builder",
   "version": "0.4.4",
   "description": "A builder for the GLTF 3D transmission format",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
+  "main": "target/cjs/index.js",
+  "module": "target/esm/index.js",
   "author": "Dean Pisani",
   "license": "MIT",
   "private": false,
   "repository": "github:dpisani/gltf-builder",
   "homepage": "https://github.com/dpisani/gltf-builder",
+  "files": [
+    "target/esm",
+    "target/cjs"
+  ],
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "test": "NODE_ENV=test mocha --require babel-register \"src/**/*test.js\"",
+    "clean": "rm -rf target",
+    "build:cjs": "BABEL_ENV=main babel ./src --out-dir ./target/cjs --source-maps",
+    "build:esm": "BABEL_ENV=module babel ./src --out-dir ./target/esm --source-maps",
+    "build:test": "babel ./src --out-dir ./target/test --source-maps",
+    "test": "NODE_ENV=test mocha \"target/test/**/*test.js\"",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
     "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs"
   },
+  "cyclist": {
+    "lifecycles": {
+      "test": {
+        "stages": [
+          "build:test",
+          "test"
+        ]
+      },
+      "publish": {
+        "stages": [
+          "clean",
+          "build:cjs",
+          "build:esm",
+          "docs"
+        ]
+      }
+    }
+  },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.26.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/preset-env": "^7.9.5",
+    "@changesets/cli": "^2.6.2",
     "eslint": "^4.11.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.4.0",
@@ -33,11 +55,6 @@
     "jsdoc-export-default-interop": "^0.3.1",
     "mocha": "^4.0.1",
     "prettier": "^1.14.2",
-    "rollup": "^0.51.8",
-    "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-commonjs": "^8.2.6",
-    "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-node-resolve": "^3.0.0",
     "should": "^13.2.0",
     "should-sinon": "^0.0.6",
     "sinon": "^4.2.2"
