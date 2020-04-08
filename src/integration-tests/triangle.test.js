@@ -2,7 +2,7 @@
 // https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/Triangle
 import 'should';
 import validator from 'gltf-validator';
-import { describe, it, beforeEach } from 'mocha';
+import { describe, it } from 'mocha';
 
 import {
   Asset,

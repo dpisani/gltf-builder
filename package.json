@@ -1,6 +1,6 @@
 {
   "name": "gltf-builder",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "description": "A builder for the GLTF 3D transmission format",
   "main": "target/cjs/index.js",
   "module": "target/esm/index.js",
@@ -21,7 +21,8 @@
     "test": "NODE_ENV=test mocha \"target/test/**/*test.js\"",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
-    "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs"
+    "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs",
+    "changeset:publish": "changeset publish"
   },
   "cyclist": {
     "lifecycles": {
@@ -33,10 +34,24 @@
       },
       "publish": {
         "stages": [
+          "lint",
           "clean",
-          "build:cjs",
-          "build:esm",
-          "docs"
+          {
+            "name": "test",
+            "tasks": [
+              "build:test",
+              "test"
+            ]
+          },
+          {
+            "name": "build",
+            "tasks": [
+              "build:cjs",
+              "build:esm"
+            ]
+          },
+          "docs",
+          "changeset:publish"
         ]
       }
     }
