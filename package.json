@@ -17,7 +17,7 @@
     "clean": "rm -rf target",
     "build:cjs": "BABEL_ENV=main babel ./src --out-dir ./target/cjs --source-maps",
     "build:esm": "BABEL_ENV=module babel ./src --out-dir ./target/esm --source-maps",
-    "build:test": "babel ./src --out-dir ./target/test --source-maps",
+    "build:test": "babel ./src --out-dir ./target/test --source-maps --copy-files --no-copy-ignored",
     "build:test:watch": "yarn build:test --watch",
     "test": "NODE_ENV=test mocha \"target/test/**/*test.js\"",
     "test:watch": "yarn test --watch",

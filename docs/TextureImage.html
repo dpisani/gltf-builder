@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Accessor</title>
+    <title>JSDoc: Class: TextureImage</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Accessor</h1>
+    <h1 class="page-title">Class: TextureImage</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Accessor</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>TextureImage</h2>
         
-            <div class="class-description">Accessor - a builder for a GLTF accessor object</div>
+            <div class="class-description">TextureImage - a builder for a GLTF image object</div>
         
     
 </header>
@@ -88,7 +88,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-accessor">GLTF reference</a></li>
+            <li><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-image">GLTF reference</a></li>
         </ul>
     </dd>
     
@@ -129,136 +129,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".componentTypes"><span class="type-signature">(static) </span>componentTypes<span class="type-signature"> :<a href="global.html#AccessorComponentTypes">AccessorComponentTypes</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="global.html#AccessorComponentTypes">AccessorComponentTypes</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".types"><span class="type-signature">(static) </span>types<span class="type-signature"> :<a href="global.html#AccessorAttributeTypes">AccessorAttributeTypes</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="global.html#AccessorAttributeTypes">AccessorAttributeTypes</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -269,7 +139,7 @@
     
 
     
-    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">(count)</span><span class="type-signature"> &rarr; {<a href="Accessor.html">Accessor</a>}</span></h4>
+    <h4 class="name" id="bufferView"><span class="type-signature"></span>bufferView<span class="signature">(bufferView)</span><span class="type-signature"> &rarr; {<a href="TextureImage.html">TextureImage</a>}</span></h4>
     
 
     
@@ -277,7 +147,7 @@
 
 
 <div class="description">
-    count - sets the count property on the accessor
+    Sets the buffer view holding the image data.
 </div>
 
 
@@ -313,13 +183,13 @@
 
         <tr>
             
-                <td class="name"><code>count</code></td>
+                <td class="name"><code>bufferView</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type"><a href="BufferView.html">BufferView</a></span>
 
 
             
@@ -329,8 +199,7 @@
 
             
 
-            <td class="description last">number of attributes referenced by this accessor,
-not to be confused with the number of bytes or number of components.</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -404,7 +273,311 @@ not to be confused with the number of bytes or number of components.</td>
     </dt>
     <dd>
         
-<span class="param-type"><a href="Accessor.html">Accessor</a></span>
+<span class="param-type"><a href="TextureImage.html">TextureImage</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="mimeType"><span class="type-signature"></span>mimeType<span class="signature">(mimeType)</span><span class="type-signature"> &rarr; {<a href="TextureImage.html">TextureImage</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets the mime-type for the image. Must be set if providing data via bufferView
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>mimeType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">must be one of "image/jpeg", "image/png"</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="TextureImage.html">TextureImage</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="uri"><span class="type-signature"></span>uri<span class="signature">(uri)</span><span class="type-signature"> &rarr; {<a href="TextureImage.html">TextureImage</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets the image URI to use as image data
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="TextureImage.html">TextureImage</a></span>
 
 
     </dd>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: MetallicRoughness</title>
+    <title>JSDoc: Class: Sampler</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: MetallicRoughness</h1>
+    <h1 class="page-title">Class: Sampler</h1>
 
     
 
@@ -28,9 +28,10 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>MetallicRoughness</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Sampler</h2>
         
-            <div class="class-description">MetallicRoughness - a builder for a GLTF pbrMetallicRoughness object</div>
+            <div class="class-description">Sampler - a builder for a GLTF sampler object.
+Defines filtering and wrapping modes for a texture.</div>
         
     
 </header>
@@ -88,7 +89,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-pbrmetallicroughness">GLTF reference</a></li>
+            <li><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-sampler">GLTF reference</a></li>
         </ul>
     </dd>
     
@@ -129,6 +130,199 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".magFilterTypes"><span class="type-signature">(static) </span>magFilterTypes<span class="type-signature"> :<a href="global.html#MagFilterTypes">MagFilterTypes</a></span></h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="global.html#MagFilterTypes">MagFilterTypes</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".minFilterTypes"><span class="type-signature">(static) </span>minFilterTypes<span class="type-signature"> :<a href="global.html#MinFilterTypes">MinFilterTypes</a></span></h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="global.html#MinFilterTypes">MinFilterTypes</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".wrapModes"><span class="type-signature">(static) </span>wrapModes<span class="type-signature"> :<a href="global.html#WrapModes">WrapModes</a></span></h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="global.html#WrapModes">WrapModes</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -139,7 +333,7 @@
     
 
     
-    <h4 class="name" id="baseColorFactor"><span class="type-signature"></span>baseColorFactor<span class="signature">(baseColorFactor)</span><span class="type-signature"> &rarr; {<a href="MetallicRoughness.html">MetallicRoughness</a>}</span></h4>
+    <h4 class="name" id="magFilter"><span class="type-signature"></span>magFilter<span class="signature">(magFilter)</span><span class="type-signature"> &rarr; {<a href="Sampler.html">Sampler</a>}</span></h4>
     
 
     
@@ -147,7 +341,7 @@
 
 
 <div class="description">
-    baseColorFactor - Sets the material's base color factor.
+    Sets the magFilter mode for this sampler
 </div>
 
 
@@ -183,165 +377,13 @@
 
         <tr>
             
-                <td class="name"><code>baseColorFactor</code></td>
+                <td class="name"><code>magFilter</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Vec4">Vec4</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">colour</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    this
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="MetallicRoughness.html">MetallicRoughness</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="baseColorTexture"><span class="type-signature"></span>baseColorTexture<span class="signature">(baseColorTexture)</span><span class="type-signature"> &rarr; {<a href="MetallicRoughness.html">MetallicRoughness</a>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Sets the material's base color texture.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>baseColorTexture</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="TextureInfo.html">TextureInfo</a></span>
+<span class="param-type"><a href="global.html#MagFilterTypes">MagFilterTypes</a></span>
 
 
             
@@ -425,7 +467,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="MetallicRoughness.html">MetallicRoughness</a></span>
+<span class="param-type"><a href="Sampler.html">Sampler</a></span>
 
 
     </dd>
@@ -443,7 +485,7 @@
     
 
     
-    <h4 class="name" id="baseColourFactor"><span class="type-signature"></span>baseColourFactor<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="minFilter"><span class="type-signature"></span>minFilter<span class="signature">(minFilter)</span><span class="type-signature"> &rarr; {<a href="Sampler.html">Sampler</a>}</span></h4>
     
 
     
@@ -451,169 +493,7 @@
 
 
 <div class="description">
-    Alias of <a href="MetallicRoughness.html#baseColorFactor">MetallicRoughness#baseColorFactor</a>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="baseColourTexture"><span class="type-signature"></span>baseColourTexture<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Alias of <a href="MetallicRoughness.html#baseColorTexture">MetallicRoughness#baseColorTexture</a>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="metallicFactor"><span class="type-signature"></span>metallicFactor<span class="signature">(metallicFactor)</span><span class="type-signature"> &rarr; {<a href="MetallicRoughness.html">MetallicRoughness</a>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    metallicFactor - Sets the material's metallic factor.
+    Sets the minFilter mode for this sampler
 </div>
 
 
@@ -649,13 +529,13 @@
 
         <tr>
             
-                <td class="name"><code>metallicFactor</code></td>
+                <td class="name"><code>minFilter</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type"><a href="global.html#MinFilterTypes">MinFilterTypes</a></span>
 
 
             
@@ -739,7 +619,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="MetallicRoughness.html">MetallicRoughness</a></span>
+<span class="param-type"><a href="Sampler.html">Sampler</a></span>
 
 
     </dd>
@@ -757,7 +637,7 @@
     
 
     
-    <h4 class="name" id="metallicRoughnessTexture"><span class="type-signature"></span>metallicRoughnessTexture<span class="signature">(metallicRoughnessTexture)</span><span class="type-signature"> &rarr; {<a href="MetallicRoughness.html">MetallicRoughness</a>}</span></h4>
+    <h4 class="name" id="wrapS"><span class="type-signature"></span>wrapS<span class="signature">(wrapS)</span><span class="type-signature"> &rarr; {<a href="Sampler.html">Sampler</a>}</span></h4>
     
 
     
@@ -765,9 +645,7 @@
 
 
 <div class="description">
-    Sets the material's metallic roughness texture.
-The metalness values are sampled from the B channel. The roughness values are sampled from the G channel.
-These values are linear. If other channels are present (R or A), they are ignored for metallic-roughness
+    Sets the S (U) wrapping mode for this sampler
 </div>
 
 
@@ -803,13 +681,13 @@ These values are linear. If other channels are present (R or A), they are ignore
 
         <tr>
             
-                <td class="name"><code>metallicRoughnessTexture</code></td>
+                <td class="name"><code>wrapS</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="TextureInfo.html">TextureInfo</a></span>
+<span class="param-type"><a href="global.html#WrapModes">WrapModes</a></span>
 
 
             
@@ -893,7 +771,7 @@ These values are linear. If other channels are present (R or A), they are ignore
     </dt>
     <dd>
         
-<span class="param-type"><a href="MetallicRoughness.html">MetallicRoughness</a></span>
+<span class="param-type"><a href="Sampler.html">Sampler</a></span>
 
 
     </dd>
@@ -911,7 +789,7 @@ These values are linear. If other channels are present (R or A), they are ignore
     
 
     
-    <h4 class="name" id="roughnessFactor"><span class="type-signature"></span>roughnessFactor<span class="signature">(roughnessFactor)</span><span class="type-signature"> &rarr; {<a href="MetallicRoughness.html">MetallicRoughness</a>}</span></h4>
+    <h4 class="name" id="wrapT"><span class="type-signature"></span>wrapT<span class="signature">(wrapT)</span><span class="type-signature"> &rarr; {<a href="Sampler.html">Sampler</a>}</span></h4>
     
 
     
@@ -919,7 +797,7 @@ These values are linear. If other channels are present (R or A), they are ignore
 
 
 <div class="description">
-    roughnessFactor - Sets the material's roughness factor.
+    Sets the T (V) wrapping mode for this sampler
 </div>
 
 
@@ -955,13 +833,13 @@ These values are linear. If other channels are present (R or A), they are ignore
 
         <tr>
             
-                <td class="name"><code>roughnessFactor</code></td>
+                <td class="name"><code>wrapT</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type"><a href="global.html#WrapModes">WrapModes</a></span>
 
 
             
@@ -1045,7 +923,7 @@ These values are linear. If other channels are present (R or A), they are ignore
     </dt>
     <dd>
         
-<span class="param-type"><a href="MetallicRoughness.html">MetallicRoughness</a></span>
+<span class="param-type"><a href="Sampler.html">Sampler</a></span>
 
 
     </dd>

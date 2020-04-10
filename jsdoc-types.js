@@ -1,4 +1,9 @@
 /**
+ * A two dimensional vector.
+ * @typedef {number[] | Float32Array} Vec2
+ */
+
+/**
  * A three dimensional vector.
  * @typedef {number[] | Float32Array} Vec3
  */

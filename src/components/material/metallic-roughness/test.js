@@ -42,35 +42,37 @@ describe('MetallicRoughness', () => {
       .should.deepEqual({ roughnessFactor: 0.42 });
   });
 
-  it('can have its base color texture set', () => {
-    const textureInfoStub = {
-      build: stub().returns({})
+  it('can have its base color texture set and builds provided component', () => {
+    const baseColorTextureStub = {
+      build: stub().returns({ baseColorTextureData: true })
     };
-    const indexStub = {
-      indexOf: stub()
-        .withArgs(textureInfoStub)
-        .returns(42)
-    };
+    const indexerStub = {};
 
     metallicRoughness
-      .baseColorTexture(textureInfoStub)
-      .build(indexStub)
-      .should.deepEqual({ baseColorTexture: 42 });
+      .metallicRoughnessTexture(baseColorTextureStub)
+      .build(indexerStub)
+      .should.deepEqual({
+        metallicRoughnessTexture: { baseColorTextureData: true }
+      });
+
+    baseColorTextureStub.build.should.be.calledOnce();
+    baseColorTextureStub.build.should.be.calledWith(indexerStub);
   });
 
-  it('can have its metallic roughness texture set', () => {
-    const textureInfoStub = {
-      build: stub().returns({})
+  it('can have its metallic roughness texture set and builds provided component', () => {
+    const metallicRoughnessTextureStub = {
+      build: stub().returns({ metallicRoughnessTextureData: true })
     };
-    const indexStub = {
-      indexOf: stub()
-        .withArgs(textureInfoStub)
-        .returns(42)
-    };
+    const indexerStub = {};
 
     metallicRoughness
-      .metallicRoughnessTexture(textureInfoStub)
-      .build(indexStub)
-      .should.deepEqual({ metallicRoughnessTexture: 42 });
+      .metallicRoughnessTexture(metallicRoughnessTextureStub)
+      .build(indexerStub)
+      .should.deepEqual({
+        metallicRoughnessTexture: { metallicRoughnessTextureData: true }
+      });
+
+    metallicRoughnessTextureStub.build.should.be.calledOnce();
+    metallicRoughnessTextureStub.build.should.be.calledWith(indexerStub);
   });
 });

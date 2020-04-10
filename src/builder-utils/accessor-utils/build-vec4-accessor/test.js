@@ -7,7 +7,7 @@ import { stub } from 'sinon';
 import Accessor from '../../../components/accessor';
 
 import createStubComponent from '../../../test-util/create-stub-component';
-import buildColour from './unwired';
+import buildVec4Accessor from './unwired';
 
 const colours = [[0, 1, 0, 1], [1, 0, 0, 1], [0, 0, 1, 1]];
 
@@ -28,16 +28,16 @@ const deps = {
   bufferViewFromArray: bufferViewFromArrayStub
 };
 
-describe('buildColour utility', () => {
+describe('buildVec4Accessor utility', () => {
   it('returns an accessor', () => {
-    buildColour(colours, deps).should.be.an.instanceOf(Accessor);
+    buildVec4Accessor(colours, deps).should.be.an.instanceOf(Accessor);
   });
 
   describe('accessor', () => {
     let accessor;
 
     beforeEach(() => {
-      accessor = buildColour(colours, deps);
+      accessor = buildVec4Accessor(colours, deps);
     });
 
     it('sets the correct data types on the accessor', () => {

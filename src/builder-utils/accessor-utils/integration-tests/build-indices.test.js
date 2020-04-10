@@ -4,9 +4,9 @@ import { describe, it, beforeEach } from 'mocha';
 
 import { createPrimitiveFixture } from '../../../test-util/fixtures';
 
-import { buildIndices } from '../index';
+import { buildUIntAccessor } from '../index';
 
-describe('Index generator', () => {
+describe('buildUIntAccessor generator', () => {
   let asset;
   let primitive;
   let generated;
@@ -16,7 +16,7 @@ describe('Index generator', () => {
     asset = fixture.asset;
     primitive = fixture.primitive;
 
-    const position = buildIndices([0, 1, 2]);
+    const position = buildUIntAccessor([0, 1, 2]);
     primitive.indices(position);
 
     generated = asset.build();

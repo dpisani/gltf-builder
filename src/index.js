@@ -11,5 +11,9 @@ export { default as Material } from './components/material';
 export {
   default as MetallicRoughness
 } from './components/material/metallic-roughness';
+export { default as TextureImage } from './components/image';
+export { default as Texture } from './components/texture';
+export { default as Sampler } from './components/sampler';
+export { default as TextureInfo } from './components/texture-info';
 
 export * from './builder-utils';

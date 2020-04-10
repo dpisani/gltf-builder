@@ -6,6 +6,13 @@ export default class Mesh extends NamedComponent {
     super({ indexName: 'meshes', defaultProperties: { primitives: [] } });
   }
 
+  /**
+   * Adds a primitive to the mesh
+   *
+   * @param {Primitive} primitive
+   * @returns {Mesh} this
+   * @memberof Mesh
+   */
   addPrimitive(primitive) {
     this.properties.primitives.push(primitive);
 

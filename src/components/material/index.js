@@ -104,12 +104,12 @@ export default class Material extends NamedComponent {
     return this;
   }
 
-  build() {
+  build(indexer) {
     const { pbrMetallicRoughness, ...properties } = this.properties;
 
     return pickBuiltProperties({
       pbrMetallicRoughness:
-        pbrMetallicRoughness && pbrMetallicRoughness.build(),
+        pbrMetallicRoughness && pbrMetallicRoughness.build(indexer),
       ...properties
     });
   }

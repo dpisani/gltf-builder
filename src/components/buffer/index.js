@@ -15,7 +15,7 @@ export default class Buffer extends NamedComponent {
   }
 
   /**
-   * data - sets the data stored in this buffer.
+   * Sets the data stored in this buffer.
    *
    * @param {ArrayBuffer} arrayBuffer a JS array buffer containing binary data
    * @returns {Buffer} this

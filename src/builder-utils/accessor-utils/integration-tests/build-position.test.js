@@ -4,9 +4,9 @@ import { describe, it, beforeEach } from 'mocha';
 
 import { createPrimitiveFixture } from '../../../test-util/fixtures';
 
-import { buildPosition } from '../index';
+import { buildVec3Accessor } from '../index';
 
-describe('Position generator', () => {
+describe('buildVec3Accessor generator', () => {
   let asset;
   let primitive;
 
@@ -20,7 +20,7 @@ describe('Position generator', () => {
     let generated;
 
     beforeEach(() => {
-      const position = buildPosition([[0, 0, 0], [1, 0, 0], [0, 1, 0]]);
+      const position = buildVec3Accessor([[0, 0, 0], [1, 0, 0], [0, 1, 0]]);
       primitive.position(position);
 
       generated = asset.build();

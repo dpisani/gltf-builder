@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Accessor</title>
+    <title>JSDoc: Class: Texture</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Accessor</h1>
+    <h1 class="page-title">Class: Texture</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Accessor</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Texture</h2>
         
-            <div class="class-description">Accessor - a builder for a GLTF accessor object</div>
+            <div class="class-description">Texture - a builder for a GLTF texture object</div>
         
     
 </header>
@@ -88,7 +88,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-accessor">GLTF reference</a></li>
+            <li><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-texture">GLTF reference</a></li>
         </ul>
     </dd>
     
@@ -129,136 +129,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".componentTypes"><span class="type-signature">(static) </span>componentTypes<span class="type-signature"> :<a href="global.html#AccessorComponentTypes">AccessorComponentTypes</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="global.html#AccessorComponentTypes">AccessorComponentTypes</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".types"><span class="type-signature">(static) </span>types<span class="type-signature"> :<a href="global.html#AccessorAttributeTypes">AccessorAttributeTypes</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="global.html#AccessorAttributeTypes">AccessorAttributeTypes</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -269,7 +139,7 @@
     
 
     
-    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">(count)</span><span class="type-signature"> &rarr; {<a href="Accessor.html">Accessor</a>}</span></h4>
+    <h4 class="name" id="sampler"><span class="type-signature"></span>sampler<span class="signature">(sampler)</span><span class="type-signature"> &rarr; {<a href="Texture.html">Texture</a>}</span></h4>
     
 
     
@@ -277,7 +147,7 @@
 
 
 <div class="description">
-    count - sets the count property on the accessor
+    Sets the sampler for this texture
 </div>
 
 
@@ -313,13 +183,13 @@
 
         <tr>
             
-                <td class="name"><code>count</code></td>
+                <td class="name"><code>sampler</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type"><a href="Sampler.html">Sampler</a></span>
 
 
             
@@ -329,8 +199,7 @@
 
             
 
-            <td class="description last">number of attributes referenced by this accessor,
-not to be confused with the number of bytes or number of components.</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -404,7 +273,159 @@ not to be confused with the number of bytes or number of components.</td>
     </dt>
     <dd>
         
-<span class="param-type"><a href="Accessor.html">Accessor</a></span>
+<span class="param-type"><a href="Texture.html">Texture</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="source"><span class="type-signature"></span>source<span class="signature">(source)</span><span class="type-signature"> &rarr; {<a href="Texture.html">Texture</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets the source image for this texture
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="TextureImage.html">TextureImage</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Texture.html">Texture</a></span>
 
 
     </dd>

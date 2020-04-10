@@ -99,9 +99,9 @@ export default class MetallicRoughness extends ComponentBase {
 
     return pickBuiltProperties({
       ...properties,
-      baseColorTexture: baseColorTexture && indexer.indexOf(baseColorTexture),
+      baseColorTexture: baseColorTexture && baseColorTexture.build(indexer),
       metallicRoughnessTexture:
-        metallicRoughnessTexture && indexer.indexOf(metallicRoughnessTexture)
+        metallicRoughnessTexture && metallicRoughnessTexture.build(indexer)
     });
   }
 }

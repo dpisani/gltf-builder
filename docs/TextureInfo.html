@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Accessor</title>
+    <title>JSDoc: Class: TextureInfo</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Accessor</h1>
+    <h1 class="page-title">Class: TextureInfo</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Accessor</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>TextureInfo</h2>
         
-            <div class="class-description">Accessor - a builder for a GLTF accessor object</div>
+            <div class="class-description">TextureInfo - A builder for a GLTF TextureInfo object</div>
         
     
 </header>
@@ -88,7 +88,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-accessor">GLTF reference</a></li>
+            <li><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-textureinfo">GLTF reference</a></li>
         </ul>
     </dd>
     
@@ -129,136 +129,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".componentTypes"><span class="type-signature">(static) </span>componentTypes<span class="type-signature"> :<a href="global.html#AccessorComponentTypes">AccessorComponentTypes</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="global.html#AccessorComponentTypes">AccessorComponentTypes</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".types"><span class="type-signature">(static) </span>types<span class="type-signature"> :<a href="global.html#AccessorAttributeTypes">AccessorAttributeTypes</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="global.html#AccessorAttributeTypes">AccessorAttributeTypes</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -269,7 +139,7 @@
     
 
     
-    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">(count)</span><span class="type-signature"> &rarr; {<a href="Accessor.html">Accessor</a>}</span></h4>
+    <h4 class="name" id="index"><span class="type-signature"></span>index<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -277,7 +147,89 @@
 
 
 <div class="description">
-    count - sets the count property on the accessor
+    Alias of <a href="TextureInfo.html#texture">TextureInfo#texture</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="texCoord"><span class="type-signature"></span>texCoord<span class="signature">(texCoord)</span><span class="type-signature"> &rarr; {<a href="TextureInfo.html">TextureInfo</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    texCoord - sets the texCoord index used by mesh primitives.
+Used to construct a string in the format TEXCOORD_<texCoord>
 </div>
 
 
@@ -313,7 +265,7 @@
 
         <tr>
             
-                <td class="name"><code>count</code></td>
+                <td class="name"><code>texCoord</code></td>
             
 
             <td class="type">
@@ -329,8 +281,7 @@
 
             
 
-            <td class="description last">number of attributes referenced by this accessor,
-not to be confused with the number of bytes or number of components.</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -404,7 +355,159 @@ not to be confused with the number of bytes or number of components.</td>
     </dt>
     <dd>
         
-<span class="param-type"><a href="Accessor.html">Accessor</a></span>
+<span class="param-type"><a href="TextureInfo.html">TextureInfo</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="texture"><span class="type-signature"></span>texture<span class="signature">(texture)</span><span class="type-signature"> &rarr; {<a href="TextureInfo.html">TextureInfo</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    texture - sets the texture referenced by this component
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>texture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Texture.html">Texture</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="TextureInfo.html">TextureInfo</a></span>
 
 
     </dd>

@@ -57,16 +57,21 @@ describe('Material', () => {
       .should.deepEqual({ doubleSided: true });
   });
 
-  it('can have metallic roughness set', () => {
+  it('can have metallic roughness set and builds provided component', () => {
     const metallicRoughness = {
       build: stub().returns({ pbrMetallicRoughnessContent: true })
     };
 
+    const indexerStub = {};
+
     material
       .pbrMetallicRoughness(metallicRoughness)
-      .build()
+      .build(indexerStub)
       .should.deepEqual({
         pbrMetallicRoughness: { pbrMetallicRoughnessContent: true }
       });
+
+    metallicRoughness.build.should.be.calledOnce();
+    metallicRoughness.build.should.be.calledWith(indexerStub);
   });
 });

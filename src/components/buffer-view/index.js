@@ -11,12 +11,26 @@ export default class BufferView extends NamedComponent {
     super({ indexName: 'bufferViews' });
   }
 
+  /**
+   * Sets the length of the buffer view, in bytes
+   *
+   * @param {number} length
+   * @returns {BufferView} this
+   * @memberof BufferView
+   */
   byteLength(length) {
     this.properties.byteLength = length;
 
     return this;
   }
 
+  /**
+   * Sets the buffer referenced by this buffer view
+   *
+   * @param {Buffer} buffer
+   * @returns {BufferView} this
+   * @memberof BufferView
+   */
   buffer(buffer) {
     this.properties.buffer = buffer;
 

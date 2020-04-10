@@ -8,9 +8,9 @@ import BufferView from '../../../components/buffer-view';
 import Accessor from '../../../components/accessor';
 
 import createStubComponent from '../../../test-util/create-stub-component';
-import buildPosition from './unwired';
+import buildVec2Accessor from './unwired';
 
-const points = [[0, 1, 0], [1, 0, 0], [0, 0, 1]];
+const points = [[0, 1], [1, 0]];
 
 const accessorStub = createStubComponent(Accessor, [
   'type',
@@ -34,28 +34,28 @@ const deps = {
   BufferView: bufferViewStub.StubClass
 };
 
-describe('buildPosition utility', () => {
+describe('buildVec2Accessor utility', () => {
   it('returns an accessor', () => {
-    buildPosition(points, deps).should.be.an.instanceOf(Accessor);
+    buildVec2Accessor(points, deps).should.be.an.instanceOf(Accessor);
   });
 
   describe('accessor', () => {
     let accessor;
 
     beforeEach(() => {
-      accessor = buildPosition(points, deps);
+      accessor = buildVec2Accessor(points, deps);
     });
 
     it('sets the correct data types on the accessor', () => {
-      accessor.type.should.be.calledWith(Accessor.types.VEC3);
+      accessor.type.should.be.calledWith(Accessor.types.VEC2);
       accessor.componentType.should.be.calledWith(
         Accessor.componentTypes.FLOAT
       );
     });
 
     it('sets the min and max on the accessor', () => {
-      accessor.min.should.be.calledWith([0, 0, 0]);
-      accessor.max.should.be.calledWith([1, 1, 1]);
+      accessor.min.should.be.calledWith([0, 0]);
+      accessor.max.should.be.calledWith([1, 1]);
     });
 
     it('sets a BufferView on the accessor', () => {
@@ -64,7 +64,7 @@ describe('buildPosition utility', () => {
     });
 
     it('sets a count of the number of elements in the accessor', () => {
-      accessor.count.should.be.calledWith(3);
+      accessor.count.should.be.calledWith(2);
     });
 
     describe('bufferView', () => {
@@ -74,8 +74,8 @@ describe('buildPosition utility', () => {
       });
 
       it('sets the correct byteLength on the bufferView', () => {
-        // 4 (float length) * 3 * 3
-        bufferView.byteLength.should.be.calledWith(36);
+        // 4 (float length) * 2 * 2
+        bufferView.byteLength.should.be.calledWith(16);
       });
 
       it('sets a buffer on the bufferView', () => {

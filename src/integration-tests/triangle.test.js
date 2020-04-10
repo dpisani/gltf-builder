@@ -10,8 +10,8 @@ import {
   Mesh,
   Node,
   Primitive,
-  buildIndices,
-  buildPosition
+  buildUIntAccessor,
+  buildVec3Accessor
 } from '../index';
 
 describe('triangle integration test', () => {
@@ -20,8 +20,8 @@ describe('triangle integration test', () => {
       new Node().mesh(
         new Mesh().addPrimitive(
           new Primitive()
-            .position(buildPosition([[0, 0, 0], [1, 0, 0], [0, 1, 0]]))
-            .indices(buildIndices([0, 1, 2]))
+            .position(buildVec3Accessor([[0, 0, 0], [1, 0, 0], [0, 1, 0]]))
+            .indices(buildUIntAccessor([0, 1, 2]))
         )
       )
     )
@@ -40,13 +40,13 @@ describe('triangle integration test', () => {
           new Mesh().addPrimitive(
             new Primitive()
               .position(
-                buildPosition([
+                buildVec3Accessor([
                   Float32Array.of(0, 0, 0),
                   Float32Array.of(1, 0, 0),
                   Float32Array.of(0, 1, 0)
                 ])
               )
-              .indices(buildIndices([0, 1, 2]))
+              .indices(buildUIntAccessor([0, 1, 2]))
           )
         )
       )

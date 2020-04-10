@@ -46,13 +46,15 @@ export default class Primitive extends ComponentBase {
     return this;
   }
 
-  texcoord0(texcoord0) {
-    this.properties.attributes.TEXCOORD_0 = texcoord0;
-    return this;
-  }
-
-  texcoord1(texcoord1) {
-    this.properties.attributes.TEXCOORD_1 = texcoord1;
+  /**
+   * Sets data for the TEXCOORD_0 property on the primitive
+   *
+   * @param {Accessor} texcoord Accessor containing Vec2 data
+   * @returns {Primitive} this
+   * @memberof Primitive
+   */
+  texcoord(texcoord) {
+    this.properties.attributes.TEXCOORD_0 = texcoord;
     return this;
   }
 
@@ -74,9 +76,9 @@ export default class Primitive extends ComponentBase {
   /**
    * indices - Sets the indices property on the primitive
    *
-   * @param {Accessor} indices an accessor for index data
+   * @param {Accessor} indices an accessor for UInt index data
    *
-   * @returns this
+   * @returns {Primitive} this
    */
   indices(indices) {
     this.properties.indices = indices;
@@ -88,7 +90,7 @@ export default class Primitive extends ComponentBase {
    *
    * @param {Material} material
    *
-   * @returns this
+   * @returns {Primitive} this
    */
   material(material) {
     this.properties.material = material;

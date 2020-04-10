@@ -67,18 +67,10 @@ describe('Primitive', () => {
     });
 
     it('can have a TEXCOORD_0 accessor set', () => {
-      primitive.texcoord0(accessorStub);
+      primitive.texcoord(accessorStub);
 
       primitive.build(indexerStub).attributes.should.deepEqual({
         TEXCOORD_0: 42
-      });
-    });
-
-    it('can have a TEXCOORD_1 accessor set', () => {
-      primitive.texcoord1(accessorStub);
-
-      primitive.build(indexerStub).attributes.should.deepEqual({
-        TEXCOORD_1: 42
       });
     });
 
