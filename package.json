@@ -18,23 +18,37 @@
     "build:cjs": "BABEL_ENV=main babel ./src --out-dir ./target/cjs --source-maps",
     "build:esm": "BABEL_ENV=module babel ./src --out-dir ./target/esm --source-maps",
     "build:test": "babel ./src --out-dir ./target/test --source-maps",
+    "build:test:watch": "yarn build:test --watch",
     "test": "NODE_ENV=test mocha \"target/test/**/*test.js\"",
+    "test:watch": "yarn test --watch",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
     "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs",
-    "changeset:publish": "changeset publish"
+    "version": "changeset version"
   },
   "cyclist": {
     "lifecycles": {
       "test": {
         "stages": [
+          "clean",
           "build:test",
-          "test"
+          {
+            "name": "watch-tests",
+            "tasks": [
+              "build:test:watch",
+              {
+                "script": "test:watch",
+                "outputMode": "stream"
+              }
+            ],
+            "parallel": "true"
+          }
         ]
       },
       "publish": {
         "stages": [
           "lint",
+          "format",
           "clean",
           {
             "name": "test",
@@ -51,7 +65,7 @@
             ]
           },
           "docs",
-          "changeset:publish"
+          "version"
         ]
       }
     }

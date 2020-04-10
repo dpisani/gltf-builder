@@ -1,4 +1,5 @@
 import ComponentBase from '../../component-base/';
+import pickBuiltProperties from '../../../util/pick-built-properties';
 
 /**
  * MetallicRoughness - a builder for a GLTF pbrMetallicRoughness object
@@ -22,7 +23,7 @@ export default class MetallicRoughness extends ComponentBase {
    *
    * @param {Vec4} baseColorFactor colour
    *
-   * @returns this
+   * @returns {MetallicRoughness} this
    */
   baseColorFactor(baseColorFactor) {
     this.properties.baseColorFactor = baseColorFactor;
@@ -35,7 +36,7 @@ export default class MetallicRoughness extends ComponentBase {
    *
    * @param {number} metallicFactor
    *
-   * @returns this
+   * @returns {MetallicRoughness} this
    */
   metallicFactor(metallicFactor) {
     this.properties.metallicFactor = metallicFactor;
@@ -48,11 +49,59 @@ export default class MetallicRoughness extends ComponentBase {
    *
    * @param {number} roughnessFactor
    *
-   * @returns this
+   * @returns {MetallicRoughness} this
    */
   roughnessFactor(roughnessFactor) {
     this.properties.roughnessFactor = roughnessFactor;
 
     return this;
+  }
+
+  /**
+   * Sets the material's base color texture.
+   *
+   * @param {TextureInfo} baseColorTexture
+   * @returns {MetallicRoughness} this
+   * @memberof MetallicRoughness
+   */
+  baseColorTexture(baseColorTexture) {
+    this.properties.baseColorTexture = baseColorTexture;
+    return this;
+  }
+
+  /**
+   * @description Alias of {@link MetallicRoughness#baseColorTexture}
+   */
+  baseColourTexture(baseColourTexture) {
+    return this.baseColorTexture(baseColourTexture);
+  }
+
+  /**
+   * Sets the material's metallic roughness texture.
+   * The metalness values are sampled from the B channel. The roughness values are sampled from the G channel.
+   * These values are linear. If other channels are present (R or A), they are ignored for metallic-roughness
+   *
+   * @param {TextureInfo} metallicRoughnessTexture
+   * @returns {MetallicRoughness} this
+   * @memberof MetallicRoughness
+   */
+  metallicRoughnessTexture(metallicRoughnessTexture) {
+    this.properties.metallicRoughnessTexture = metallicRoughnessTexture;
+    return this;
+  }
+
+  build(indexer) {
+    const {
+      baseColorTexture,
+      metallicRoughnessTexture,
+      ...properties
+    } = this.properties;
+
+    return pickBuiltProperties({
+      ...properties,
+      baseColorTexture: baseColorTexture && indexer.indexOf(baseColorTexture),
+      metallicRoughnessTexture:
+        metallicRoughnessTexture && indexer.indexOf(metallicRoughnessTexture)
+    });
   }
 }
