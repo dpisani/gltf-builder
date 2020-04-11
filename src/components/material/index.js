@@ -2,10 +2,13 @@ import NamedComponent from '../named-component/';
 import pickBuiltProperties from '../../util/pick-built-properties';
 
 /**
- * AlphaMode - Describes the alpha mode of a material
+ * Describes the alpha mode of a material
+ * @alias AlphaModes
  * @enum {string}
+ * @memberof Material
+ * @static
  */
-const alphaMode = {
+const alphaModes = {
   OPAQUE: 'OPAQUE',
   MASK: 'MASK',
   BLEND: 'BLEND'
@@ -28,13 +31,8 @@ export default class Material extends NamedComponent {
     this.metallicRoughness = this.pbrMetallicRoughness;
   }
 
-  /**
-   * @static alphaModes - Valid alpha modes for materials
-   *
-   * @see {alphaMode}
-   */
-  static get alphaModes() {
-    return alphaMode;
+  static get AlphaModes() {
+    return alphaModes;
   }
 
   /**

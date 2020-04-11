@@ -4,6 +4,8 @@ import NamedComponent from '../named-component/';
  * Magnification filter types. All values correspond to WebGL enum values.
  * @alias MagFilterTypes
  * @enum {number}
+ * @memberof Sampler
+ * @static
  */
 const magFilterTypes = {
   NEAREST: 9728,
@@ -14,6 +16,8 @@ const magFilterTypes = {
  * Minification filter types. All values correspond to WebGL enum values.
  * @alias MinFilterTypes
  * @enum {number}
+ * @memberof Sampler
+ * @static
  */
 const minFilterTypes = {
   NEAREST: 9728,
@@ -28,6 +32,8 @@ const minFilterTypes = {
  * Wrapping modes. All values correspond to WebGL enum values.
  * @alias WrapModes
  * @enum {number}
+ * @memberof Sampler
+ * @static
  */
 const wrapModes = {
   CLAMP_TO_EDGE: 33071,
@@ -42,30 +48,15 @@ const wrapModes = {
  * @hideconstructor
  */
 export default class Sampler extends NamedComponent {
-  /**
-   * @static magFilterTypes - Valid mag filter settings
-   *
-   * @type {MagFilterTypes}
-   */
-  static get magFilterTypes() {
+  static get MagFilterTypes() {
     return magFilterTypes;
   }
 
-  /**
-   * @static minFilterTypes - Valid min filter settings
-   *
-   * @type {MinFilterTypes}
-   */
-  static get minFilterTypes() {
+  static get MinFilterTypes() {
     return minFilterTypes;
   }
 
-  /**
-   * @static wrapModes - Valid wrap settings
-   *
-   * @type {WrapModes}
-   */
-  static get wrapModes() {
+  static get WrapModes() {
     return wrapModes;
   }
 
@@ -76,7 +67,7 @@ export default class Sampler extends NamedComponent {
   /**
    * Sets the magFilter mode for this sampler
    *
-   * @param {MagFilterTypes} magFilter
+   * @param {Sampler.MagFilterTypes} magFilter
    * @returns {Sampler} this
    * @memberof Sampler
    */
@@ -89,7 +80,7 @@ export default class Sampler extends NamedComponent {
   /**
    * Sets the minFilter mode for this sampler
    *
-   * @param {MinFilterTypes} minFilter
+   * @param {Sampler.MinFilterTypes} minFilter
    * @returns {Sampler} this
    * @memberof Sampler
    */
@@ -102,7 +93,7 @@ export default class Sampler extends NamedComponent {
   /**
    * Sets the S (U) wrapping mode for this sampler
    *
-   * @param {WrapModes} wrapS
+   * @param {Sampler.WrapModes} wrapS
    * @returns {Sampler} this
    * @memberof Sampler
    */
@@ -115,7 +106,7 @@ export default class Sampler extends NamedComponent {
   /**
    * Sets the T (V) wrapping mode for this sampler
    *
-   * @param {WrapModes} wrapT
+   * @param {Sampler.WrapModes} wrapT
    * @returns {Sampler} this
    * @memberof Sampler
    */

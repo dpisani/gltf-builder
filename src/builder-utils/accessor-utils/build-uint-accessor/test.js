@@ -47,9 +47,9 @@ describe('generateIndices utility', () => {
     });
 
     it('sets the correct data types on the accessor', () => {
-      accessor.type.should.be.calledWith(Accessor.types.SCALAR);
+      accessor.type.should.be.calledWith(Accessor.AttributeTypes.SCALAR);
       accessor.componentType.should.be.calledWith(
-        Accessor.componentTypes.UNSIGNED_SHORT
+        Accessor.ComponentTypes.UNSIGNED_SHORT
       );
     });
 

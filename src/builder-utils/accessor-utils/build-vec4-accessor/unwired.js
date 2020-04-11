@@ -6,7 +6,7 @@ export default (points, { Accessor, bufferViewFromArray }) => {
 
   return new Accessor()
     .bufferView(bufferViewFromArray(floats))
-    .componentType(Accessor.componentTypes.FLOAT)
-    .type(Accessor.types.VEC4)
+    .componentType(Accessor.ComponentTypes.FLOAT)
+    .type(Accessor.AttributeTypes.VEC4)
     .count(points.length);
 };

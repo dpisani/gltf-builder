@@ -47,9 +47,9 @@ describe('buildVec2Accessor utility', () => {
     });
 
     it('sets the correct data types on the accessor', () => {
-      accessor.type.should.be.calledWith(Accessor.types.VEC2);
+      accessor.type.should.be.calledWith(Accessor.AttributeTypes.VEC2);
       accessor.componentType.should.be.calledWith(
-        Accessor.componentTypes.FLOAT
+        Accessor.ComponentTypes.FLOAT
       );
     });
 

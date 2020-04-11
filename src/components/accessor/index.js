@@ -3,8 +3,10 @@ import pickBuiltProperties from '../../util/pick-built-properties';
 
 /**
  * Accessor component types
- * @alias AccessorComponentTypes
+ * @alias ComponentTypes
  * @enum {number}
+ * @memberof Accessor
+ * @static
  */
 const componentTypes = {
   BYTE: 5120,
@@ -17,8 +19,10 @@ const componentTypes = {
 
 /**
  * Describes the type of data held by an accessor
- * @alias AccessorAttributeTypes
+ * @alias AttributeTypes
  * @enum {string}
+ * @memberof Accessor
+ * @static
  */
 const types = {
   SCALAR: 'SCALAR',
@@ -36,20 +40,11 @@ const types = {
  * @hideconstructor
  */
 export default class Accessor extends NamedComponent {
-  /**
-   * @static componentTypes - Valid data types for accessors
-   *
-   * @type {AccessorComponentTypes}
-   */
-  static get componentTypes() {
+  static get ComponentTypes() {
     return componentTypes;
   }
 
-  /**
-   * @static types - Valid attribute types for accessors
-   * @type {AccessorAttributeTypes}
-   */
-  static get types() {
+  static get AttributeTypes() {
     return types;
   }
 

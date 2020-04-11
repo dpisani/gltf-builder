@@ -17,8 +17,8 @@ export default (indices, { Accessor, BufferView, Buffer }) => {
 
   return new Accessor()
     .bufferView(bufferView)
-    .componentType(Accessor.componentTypes.UNSIGNED_SHORT)
-    .type(Accessor.types.SCALAR)
+    .componentType(Accessor.ComponentTypes.UNSIGNED_SHORT)
+    .type(Accessor.AttributeTypes.SCALAR)
     .min([min])
     .max([max])
     .count(indices.length);

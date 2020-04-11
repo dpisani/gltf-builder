@@ -21,8 +21,8 @@ export default (points, { Accessor, BufferView, Buffer }) => {
 
   return new Accessor()
     .bufferView(bufferView)
-    .componentType(Accessor.componentTypes.FLOAT)
-    .type(Accessor.types.VEC2)
+    .componentType(Accessor.ComponentTypes.FLOAT)
+    .type(Accessor.AttributeTypes.VEC2)
     .min(min)
     .max(max)
     .count(points.length);
