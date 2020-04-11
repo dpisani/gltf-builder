@@ -1,6 +1,14 @@
 # gltf-builder
 
+## 0.7.0
+
+### Minor Changes
+
+- Allow user specified indexes for supported primitive properties
+- Capitalise names of enums
+
 ## 0.6.0
+
 ### Minor Changes
 
 - 0b36081: Publish non-bundled builds

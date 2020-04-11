@@ -30,7 +30,7 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>Primitive</h2>
         
-            <div class="class-description">Primitive - A builder for the GLTF Primitive object</div>
+            <div class="class-description">A builder for the GLTF Primitive object</div>
         
     
 </header>
@@ -129,9 +129,477 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".Modes"><span class="type-signature">(static, constant) </span>Modes<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    Rendering modes for a primitive. All values correspond to WebGL enum values.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>POINTS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>LINES</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>LINE_LOOP</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>LINE_STRIP</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRIANGLES</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRIANGLE_STRIP</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRIANGLE_FAN</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="color"><span class="type-signature"></span>color<span class="signature">(color, index<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="Primitive.html">Primitive</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets data for the COLOR property on the primitive
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Accessor.html">Accessor</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Accessor containing Vec3 or Vec4 data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">The set index for this property, which gets applied in the form COLOR_<index></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Primitive.html">Primitive</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
 
         
             
@@ -147,7 +615,7 @@
 
 
 <div class="description">
-    indices - Sets the indices property on the primitive
+    Sets the indices property on the primitive
 </div>
 
 
@@ -291,6 +759,213 @@
     
 
     
+    <h4 class="name" id="joints"><span class="type-signature"></span>joints<span class="signature">(joints, index<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="Primitive.html">Primitive</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets data for the JOINTS property on the primitive
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>joints</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Accessor.html">Accessor</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Accessor containing Vec4 data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">The set index for this property, which gets applied in the form JOINTS_<index></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Primitive.html">Primitive</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="material"><span class="type-signature"></span>material<span class="signature">(material)</span><span class="type-signature"> &rarr; {<a href="Primitive.html">Primitive</a>}</span></h4>
     
 
@@ -299,7 +974,7 @@
 
 
 <div class="description">
-    material - Sets the material for this primitive
+    Sets the material for this primitive
 </div>
 
 
@@ -443,7 +1118,7 @@
     
 
     
-    <h4 class="name" id="texcoord"><span class="type-signature"></span>texcoord<span class="signature">(texcoord)</span><span class="type-signature"> &rarr; {<a href="Primitive.html">Primitive</a>}</span></h4>
+    <h4 class="name" id="mode"><span class="type-signature"></span>mode<span class="signature">(mode)</span><span class="type-signature"> &rarr; {<a href="Primitive.html">Primitive</a>}</span></h4>
     
 
     
@@ -451,7 +1126,7 @@
 
 
 <div class="description">
-    Sets data for the TEXCOORD_0 property on the primitive
+    Sets the mode for this primitive
 </div>
 
 
@@ -487,6 +1162,162 @@
 
         <tr>
             
+                <td class="name"><code>mode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Primitive.html#.Modes">Primitive.Modes</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Primitive.html">Primitive</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="texcoord"><span class="type-signature"></span>texcoord<span class="signature">(texcoord, index<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="Primitive.html">Primitive</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets data for the TEXCOORD property on the primitive
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
                 <td class="name"><code>texcoord</code></td>
             
 
@@ -500,10 +1331,268 @@
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">Accessor containing Vec2 data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">The set index for this property, which gets applied in the form TEXCOORD_<index></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Primitive.html">Primitive</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="weights"><span class="type-signature"></span>weights<span class="signature">(weights, index<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="Primitive.html">Primitive</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets data for the WEIGHTS property on the primitive
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>weights</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Accessor.html">Accessor</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Accessor containing Vec4 data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">The set index for this property, which gets applied in the form WEIGHTS_<index></td>
         </tr>
 
     
@@ -605,7 +1694,7 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Accessor.html">Accessor</a></li><li><a href="Buffer.html">Buffer</a></li><li><a href="BufferView.html">BufferView</a></li><li><a href="Material.html">Material</a></li><li><a href="MetallicRoughness.html">MetallicRoughness</a></li><li><a href="Node.html">Node</a></li><li><a href="Primitive.html">Primitive</a></li><li><a href="Sampler.html">Sampler</a></li><li><a href="Texture.html">Texture</a></li><li><a href="TextureImage.html">TextureImage</a></li><li><a href="TextureInfo.html">TextureInfo</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AccessorAttributeTypes">AccessorAttributeTypes</a></li><li><a href="global.html#AccessorComponentTypes">AccessorComponentTypes</a></li><li><a href="global.html#alphaMode">alphaMode</a></li><li><a href="global.html#bufferViewFromArray">bufferViewFromArray</a></li><li><a href="global.html#buildTextureFromArrayBuffer">buildTextureFromArrayBuffer</a></li><li><a href="global.html#buildUIntAccessor">buildUIntAccessor</a></li><li><a href="global.html#buildVec2Accessor">buildVec2Accessor</a></li><li><a href="global.html#buildVec3Accessor">buildVec3Accessor</a></li><li><a href="global.html#buildVec4Accessor">buildVec4Accessor</a></li><li><a href="global.html#MagFilterTypes">MagFilterTypes</a></li><li><a href="global.html#MinFilterTypes">MinFilterTypes</a></li><li><a href="global.html#WrapModes">WrapModes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Accessor.html">Accessor</a></li><li><a href="Buffer.html">Buffer</a></li><li><a href="BufferView.html">BufferView</a></li><li><a href="Material.html">Material</a></li><li><a href="MetallicRoughness.html">MetallicRoughness</a></li><li><a href="Node.html">Node</a></li><li><a href="Primitive.html">Primitive</a></li><li><a href="Sampler.html">Sampler</a></li><li><a href="Texture.html">Texture</a></li><li><a href="TextureImage.html">TextureImage</a></li><li><a href="TextureInfo.html">TextureInfo</a></li></ul><h3>Global</h3><ul><li><a href="global.html#bufferViewFromArray">bufferViewFromArray</a></li><li><a href="global.html#buildTextureFromArrayBuffer">buildTextureFromArrayBuffer</a></li><li><a href="global.html#buildUIntAccessor">buildUIntAccessor</a></li><li><a href="global.html#buildVec2Accessor">buildVec2Accessor</a></li><li><a href="global.html#buildVec3Accessor">buildVec3Accessor</a></li><li><a href="global.html#buildVec4Accessor">buildVec4Accessor</a></li></ul>
 </nav>
 
 <br class="clear">

@@ -1,6 +1,6 @@
 {
   "name": "gltf-builder",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A builder for the GLTF 3D transmission format",
   "main": "target/cjs/index.js",
   "module": "target/esm/index.js",
