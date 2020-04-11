@@ -3,21 +3,30 @@ import ComponentBase from '../component-base/';
 import pickBuiltProperties from '../../util/pick-built-properties';
 
 /**
- * Primitive - A builder for the GLTF Primitive object
+ * Rendering modes for a primitive. All values correspond to WebGL enum values.
+ * @alias Modes
+ * @enum {number}
+ * @memberof Primitive
+ * @static
+ */
+const modes = {
+  POINTS: 0,
+  LINES: 1,
+  LINE_LOOP: 2,
+  LINE_STRIP: 3,
+  TRIANGLES: 4,
+  TRIANGLE_STRIP: 5,
+  TRIANGLE_FAN: 6
+};
+
+/**
+ * A builder for the GLTF Primitive object
  * @see {@link https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-primitive|GLTF reference}
  * @hideconstructor
  */
 export default class Primitive extends ComponentBase {
-  static get modes() {
-    return {
-      POINTS: 0,
-      LINES: 1,
-      LINE_LOOP: 2,
-      LINE_STRIP: 3,
-      TRIANGLES: 4,
-      TRIANGLE_STRIP: 5,
-      TRIANGLE_FAN: 6
-    };
+  static get Modes() {
+    return modes;
   }
 
   constructor() {
@@ -26,6 +35,13 @@ export default class Primitive extends ComponentBase {
     this.colour = this.color;
   }
 
+  /**
+   * Sets the mode for this primitive
+   *
+   * @param {Primitive.Modes} mode
+   * @returns {Primitive} this
+   * @memberof Primitive
+   */
   mode(mode) {
     this.properties.mode = mode;
     return this;
@@ -47,34 +63,59 @@ export default class Primitive extends ComponentBase {
   }
 
   /**
-   * Sets data for the TEXCOORD_0 property on the primitive
+   * Sets data for the TEXCOORD property on the primitive
    *
    * @param {Accessor} texcoord Accessor containing Vec2 data
+   * @param {number} [index=0] The set index for this property, which gets applied in the form TEXCOORD_<index>
    * @returns {Primitive} this
    * @memberof Primitive
    */
-  texcoord(texcoord) {
-    this.properties.attributes.TEXCOORD_0 = texcoord;
-    return this;
-  }
-
-  color(color) {
-    this.properties.attributes.COLOR_0 = color;
-    return this;
-  }
-
-  joints(joints) {
-    this.properties.attributes.JOINTS_0 = joints;
-    return this;
-  }
-
-  weights(weights) {
-    this.properties.attributes.WEIGHTS_0 = weights;
+  texcoord(texcoord, index = 0) {
+    this.properties.attributes[`TEXCOORD_${index}`] = texcoord;
     return this;
   }
 
   /**
-   * indices - Sets the indices property on the primitive
+   * Sets data for the COLOR property on the primitive
+   *
+   * @param {Accessor} color Accessor containing Vec3 or Vec4 data
+   * @param {number} [index=0] The set index for this property, which gets applied in the form COLOR_<index>
+   * @returns {Primitive} this
+   * @memberof Primitive
+   */
+  color(color, index = 0) {
+    this.properties.attributes[`COLOR_${index}`] = color;
+    return this;
+  }
+
+  /**
+   * Sets data for the JOINTS property on the primitive
+   *
+   * @param {Accessor} joints Accessor containing Vec4 data
+   * @param {number} [index=0] The set index for this property, which gets applied in the form JOINTS_<index>
+   * @returns {Primitive} this
+   * @memberof Primitive
+   */
+  joints(joints, index = 0) {
+    this.properties.attributes[`JOINTS_${index}`] = joints;
+    return this;
+  }
+
+  /**
+   * Sets data for the WEIGHTS property on the primitive
+   *
+   * @param {Accessor} weights Accessor containing Vec4 data
+   * @param {number} [index=0] The set index for this property, which gets applied in the form WEIGHTS_<index>
+   * @returns {Primitive} this
+   * @memberof Primitive
+   */
+  weights(weights, index = 0) {
+    this.properties.attributes[`WEIGHTS_${index}`] = weights;
+    return this;
+  }
+
+  /**
+   * Sets the indices property on the primitive
    *
    * @param {Accessor} indices an accessor for UInt index data
    *
@@ -86,7 +127,7 @@ export default class Primitive extends ComponentBase {
   }
 
   /**
-   * material - Sets the material for this primitive
+   * Sets the material for this primitive
    *
    * @param {Material} material
    *

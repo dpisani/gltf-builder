@@ -98,6 +98,38 @@ describe('Primitive', () => {
       });
     });
 
+    it('can have a TEXCOORD accessor set for any index', () => {
+      primitive.texcoord(accessorStub, 5);
+
+      primitive.build(indexerStub).attributes.should.deepEqual({
+        TEXCOORD_5: 42
+      });
+    });
+
+    it('can have a COLOR accessor set for any index', () => {
+      primitive.color(accessorStub, 6);
+
+      primitive.build(indexerStub).attributes.should.deepEqual({
+        COLOR_6: 42
+      });
+    });
+
+    it('can have a JOINTS accessor set for any index', () => {
+      primitive.joints(accessorStub, 2);
+
+      primitive.build(indexerStub).attributes.should.deepEqual({
+        JOINTS_2: 42
+      });
+    });
+
+    it('can have a WEIGHTS accessor set for any index', () => {
+      primitive.weights(accessorStub, 1);
+
+      primitive.build(indexerStub).attributes.should.deepEqual({
+        WEIGHTS_1: 42
+      });
+    });
+
     it('can have indices accessor set', () => {
       primitive.indices(accessorStub);
 
