@@ -1,8 +1,8 @@
-import { flatten } from 'lodash';
-
 export default (points, { Accessor, bufferViewFromArray }) => {
-  const components = flatten(points);
-  const floats = Float32Array.of(...components);
+  const floats = new Float32Array(points.length * 4);
+  points.forEach((point, i) => {
+    floats.set(point, i * 4);
+  });
 
   return new Accessor()
     .bufferView(bufferViewFromArray(floats))

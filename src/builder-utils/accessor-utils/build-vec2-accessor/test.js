@@ -10,7 +10,7 @@ import Accessor from '../../../components/accessor';
 import createStubComponent from '../../../test-util/create-stub-component';
 import buildVec2Accessor from './unwired';
 
-const points = [[0, 1], [1, 0]];
+const points = [[0, 1], Float32Array.of(1, 0)];
 
 const accessorStub = createStubComponent(Accessor, [
   'type',

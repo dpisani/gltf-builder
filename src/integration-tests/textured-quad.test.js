@@ -36,7 +36,14 @@ describe('Textured quad integration test', () => {
                 buildVec3Accessor([[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]])
               )
               .indices(buildUIntAccessor([0, 1, 2, 2, 1, 3]))
-              .texcoord(buildVec2Accessor([[0, 0], [1, 0], [0, 1], [1, 1]]))
+              .texcoord(
+                buildVec2Accessor([
+                  Float32Array.of(0, 0),
+                  Float32Array.of(1, 0),
+                  Float32Array.of(0, 1),
+                  Float32Array.of(1, 1)
+                ])
+              )
               .material(
                 new Material().metallicRoughness(
                   new MetallicRoughness().baseColorTexture(

@@ -9,7 +9,7 @@ import Accessor from '../../../components/accessor';
 import createStubComponent from '../../../test-util/create-stub-component';
 import buildVec4Accessor from './unwired';
 
-const colours = [[0, 1, 0, 1], [1, 0, 0, 1], [0, 0, 1, 1]];
+const colours = [[0, 1, 0, 1], [1, 0, 0, 1], Float32Array.of(0, 0, 1, 1)];
 
 const accessorStub = createStubComponent(Accessor, [
   'type',
@@ -51,6 +51,9 @@ describe('buildVec4Accessor utility', () => {
       bufferViewFromArrayStub.firstCall.args[0].should.be.an.instanceOf(
         Float32Array
       );
+
+      // 3 vec4s
+      bufferViewFromArrayStub.firstCall.args[0].length.should.equal(12);
 
       accessor.bufferView.should.be.calledOnce();
       accessor.bufferView.should.be.calledWith(mockBufferView);
