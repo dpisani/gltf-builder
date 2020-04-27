@@ -1,5 +1,11 @@
 # gltf-builder
 
+## 0.7.1
+
+### Patch Changes
+
+- b65fd8f: Fix incorrect handling of Float32Arrays in data accessor builder utils
+
 ## 0.7.0
 
 ### Minor Changes
