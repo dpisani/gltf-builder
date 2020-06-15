@@ -32,15 +32,23 @@ export default class Node extends NamedComponent {
     return this;
   }
 
+  /**
+   * Sets the mesh for this node
+   *
+   * @param {Mesh} mesh
+   * @returns {Node} this
+   * @memberof Node
+   */
   mesh(mesh) {
     this.properties.mesh = mesh;
     return this;
   }
 
   /**
-   * matrix - sets the matrix property
+   * Sets a matrix transformation property on this node. Should not be used in conjunction with
+   * translation, rotation or scale properties.
    *
-   * @param {number[]} matrix A floating-point 4x4 transformation matrix stored in column-major order.
+   * @param {number[]} matrix A 4x4 transformation matrix stored in column-major order.
    *
    * @returns {Node} this
    */

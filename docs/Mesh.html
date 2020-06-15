@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Buffer</title>
+    <title>JSDoc: Class: Mesh</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Buffer</h1>
+    <h1 class="page-title">Class: Mesh</h1>
 
     
 
@@ -28,10 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Buffer</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Mesh</h2>
         
-            <div class="class-description">Buffer - a builder for a GLTF buffer object
-This component builds provided data inline as a data URI</div>
+            <div class="class-description">Mesh - a builder for a GLTF mesh object, containing a set of primitives to be rendered</div>
         
     
 </header>
@@ -89,7 +88,7 @@ This component builds provided data inline as a data URI</div>
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-buffer">GLTF reference</a></li>
+            <li><a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#reference-mesh">GLTF reference</a></li>
         </ul>
     </dd>
     
@@ -140,7 +139,7 @@ This component builds provided data inline as a data URI</div>
     
 
     
-    <h4 class="name" id="data"><span class="type-signature"></span>data<span class="signature">(arrayBuffer)</span><span class="type-signature"> &rarr; {<a href="Buffer.html">Buffer</a>}</span></h4>
+    <h4 class="name" id="addPrimitive"><span class="type-signature"></span>addPrimitive<span class="signature">(primitive)</span><span class="type-signature"> &rarr; {<a href="Mesh.html">Mesh</a>}</span></h4>
     
 
     
@@ -148,7 +147,7 @@ This component builds provided data inline as a data URI</div>
 
 
 <div class="description">
-    Sets the data stored in this buffer.
+    Adds a primitive to the mesh
 </div>
 
 
@@ -184,13 +183,13 @@ This component builds provided data inline as a data URI</div>
 
         <tr>
             
-                <td class="name"><code>arrayBuffer</code></td>
+                <td class="name"><code>primitive</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">ArrayBuffer</span>
+<span class="param-type"><a href="Primitive.html">Primitive</a></span>
 
 
             
@@ -200,7 +199,7 @@ This component builds provided data inline as a data URI</div>
 
             
 
-            <td class="description last">a JS array buffer containing binary data</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -274,7 +273,7 @@ This component builds provided data inline as a data URI</div>
     </dt>
     <dd>
         
-<span class="param-type"><a href="Buffer.html">Buffer</a></span>
+<span class="param-type"><a href="Mesh.html">Mesh</a></span>
 
 
     </dd>
