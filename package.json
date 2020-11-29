@@ -28,23 +28,21 @@
   },
   "cyclist": {
     "lifecycles": {
-      "test": {
-        "stages": [
-          "clean",
-          "build:test",
-          {
-            "name": "watch-tests",
-            "tasks": [
-              "build:test:watch",
-              {
-                "script": "test:watch",
-                "outputMode": "stream"
-              }
-            ],
-            "parallel": "true"
-          }
-        ]
-      },
+      "test": [
+        "clean",
+        "build:test",
+        {
+          "name": "watch-tests",
+          "tasks": [
+            "build:test:watch",
+            {
+              "script": "test:watch",
+              "outputMode": "stream"
+            }
+          ],
+          "parallel": "true"
+        }
+      ],
       "publish": {
         "stages": [
           "lint",
@@ -76,6 +74,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
     "@babel/preset-env": "^7.9.5",
     "@changesets/cli": "^2.6.2",
+    "@cyclist/runner": "^0.7.0",
     "eslint": "^4.11.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.4.0",
