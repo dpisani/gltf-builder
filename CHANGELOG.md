@@ -1,5 +1,11 @@
 # gltf-builder
 
+## 0.8.0
+
+### Minor Changes
+
+- Converted this repository to Typescript. This package will now ship with TS type declarations."
+
 ## 0.7.1
 
 ### Patch Changes

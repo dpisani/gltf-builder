@@ -7,4 +7,8 @@ yarn-error.log*
 node_modules/
 
 #distributables
-target/
+build/
+
+# editors
+.DS_STORE
+.vscode

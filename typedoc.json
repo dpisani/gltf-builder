@@ -1,0 +1,6 @@
+{
+  "hostedBaseUrl": "https://dpisani.github.io/gltf-builder/",
+  "disableSources": true,
+  "excludeProtected": true,
+  "projectDocuments": ["README.md", "./guides/**/*.md"]
+}

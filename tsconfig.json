@@ -1,0 +1,11 @@
+{
+  // Config used for tests + dev
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig-base.json",
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "outDir": "./build/test",
+    "module": "NodeNext",
+    "sourceMap": true
+  }
+}

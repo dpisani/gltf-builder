@@ -1,6 +1,6 @@
 # Materials and textures
 
-glTF assets use the [metallic-roughness model](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#materials)
+glTF assets use the [metallic-roughness model](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#materials)
 for specifying materials on primitives. When building an asset using gltf-builder these metallic-roughness properties can be specified
 by building up a `MetallicRoughness` object and attaching it to a `Material` instance.
 

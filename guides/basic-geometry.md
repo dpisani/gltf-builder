@@ -66,4 +66,4 @@ The data provided for primitive properties needs to be provided via an [Accessor
 gltf-builder comes with some utility functions to create data accessors, such as the `buildVec3Accessor` and `buildUIntAccessor` methods
 that were used in these examples.
 
-[More information about geometry in the GLTF specification](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#geometry)
+[More information about geometry in the GLTF specification](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#geometry)

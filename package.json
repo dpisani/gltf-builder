@@ -1,91 +1,53 @@
 {
   "name": "gltf-builder",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A builder for the GLTF 3D transmission format",
-  "main": "target/cjs/index.js",
-  "module": "target/esm/index.js",
   "author": "Dean Pisani",
   "license": "MIT",
   "private": false,
   "repository": "github:dpisani/gltf-builder",
   "homepage": "https://github.com/dpisani/gltf-builder",
+  "type": "module",
+  "exports": {
+    "import": "./build/dist/index.js",
+    "types": "./build/dist/index.d.ts"
+  },
   "files": [
-    "target/esm",
-    "target/cjs"
+    "./build/dist"
   ],
   "scripts": {
-    "clean": "rm -rf target",
-    "build:cjs": "BABEL_ENV=main babel ./src --out-dir ./target/cjs --source-maps",
-    "build:esm": "BABEL_ENV=module babel ./src --out-dir ./target/esm --source-maps",
-    "build:test": "babel ./src --out-dir ./target/test --source-maps --copy-files --no-copy-ignored",
+    "clean": "rm -rf build",
+    "build": "tsc --build ./tsconfig-esm.json",
+    "build:test": "tsc --build ./tsconfig.json",
     "build:test:watch": "yarn build:test --watch",
-    "test": "NODE_ENV=test mocha \"target/test/**/*test.js\"",
+    "test": "NODE_ENV=test mocha \"build/test/**/*test.js\" --node-option=enable-source-maps",
     "test:watch": "yarn test --watch",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
-    "docs": "rm -rf docs && jsdoc -c jsdoc.config.json -r -d docs",
-    "version": "changeset version"
-  },
-  "cyclist": {
-    "lifecycles": {
-      "test": [
-        "clean",
-        "build:test",
-        {
-          "name": "watch-tests",
-          "tasks": [
-            "build:test:watch",
-            {
-              "script": "test:watch",
-              "outputMode": "stream"
-            }
-          ],
-          "parallel": "true"
-        }
-      ],
-      "publish": {
-        "stages": [
-          "lint",
-          "format",
-          "clean",
-          {
-            "name": "test",
-            "tasks": [
-              "build:test",
-              "test"
-            ]
-          },
-          {
-            "name": "build",
-            "tasks": [
-              "build:cjs",
-              "build:esm"
-            ]
-          },
-          "docs",
-          "version"
-        ]
-      }
-    }
+    "docs": "rm -rf docs && typedoc ./src/index.ts",
+    "version": "changeset version",
+    "prepare": "yarn clean && yarn build && yarn docs"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
-    "@babel/preset-env": "^7.9.5",
     "@changesets/cli": "^2.6.2",
-    "@cyclist/runner": "^0.7.0",
-    "eslint": "^4.11.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.4.0",
+    "@types/base64-js": "^1.3.2",
+    "@types/lodash": "^4.17.13",
+    "@types/mocha": "^10.0.10",
+    "@types/sinon": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
     "gltf-validator": "^2.0.0-dev.2.5",
-    "jsdoc": "^3.5.5",
-    "jsdoc-export-default-interop": "^0.3.1",
-    "mocha": "^4.0.1",
+    "mocha": "^11.0.1",
     "prettier": "^1.14.2",
     "should": "^13.2.0",
     "should-sinon": "^0.0.6",
-    "sinon": "^4.2.2"
+    "sinon": "^4.2.2",
+    "test-fixture": "^2.4.1",
+    "ts-essentials": "^10.0.3",
+    "typedoc": "^0.27.6",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0"
   },
   "dependencies": {
     "base64-js": "^1.3.0",

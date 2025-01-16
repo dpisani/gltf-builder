@@ -12,7 +12,7 @@ npm install gltf-builder
 
 ## Getting started
 
-The gltf-builder package contains builders for various [glTF components](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#properties-reference) used to construct a 3D asset. Each component allows for all of its properties to be set in a chaining style syntax, and can be then composed together to make the final product.
+The gltf-builder package contains builders for various [glTF components](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#properties-reference) used to construct a 3D asset. Each component allows for all of its properties to be set in a chaining style syntax, and can be then composed together to make the final product.
 
 ```js
 const {
