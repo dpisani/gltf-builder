@@ -1,5 +1,5 @@
-import { SafeDictionary } from 'ts-essentials';
-import NamedComponent from '../../named-component/index.js';
+import { SafeDictionary } from "ts-essentials";
+import NamedComponent from "../../named-component/index.js";
 
 export default class Indexer {
   private indices: SafeDictionary<NamedComponent<Record<string, unknown>>[]>;
@@ -14,9 +14,7 @@ export default class Indexer {
     this.index = this.indexOf;
   }
 
-  indexOf (
-    o: NamedComponent<Record<string,unknown>>
-  ) {
+  indexOf(o: NamedComponent<Record<string, unknown>>) {
     const type = o.getIndexName();
 
     let index = this.indices[type];
@@ -60,7 +58,7 @@ export default class Indexer {
         }
 
         if (!entity) {
-          throw new Error("Indexed entity could not be retrieved")
+          throw new Error("Indexed entity could not be retrieved");
         }
 
         builtEntities[type].push(entity.build(this));

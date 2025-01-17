@@ -1,63 +1,63 @@
-import 'should';
-import 'should-sinon';
-import { describe, it, beforeEach } from 'mocha';
-import { stub, spy, createStubInstance } from 'sinon';
+import "should";
+import "should-sinon";
+import { describe, it, beforeEach } from "mocha";
+import { stub, spy, createStubInstance } from "sinon";
 
-import Asset from './index.js';
-import Indexer from './indexer/index.js';
+import Asset from "./index.js";
+import Indexer from "./indexer/index.js";
 
-import { Dictionary } from 'ts-essentials';
-import chainMethods from '../../test-util/chain-methods.js';
-import Scene from '../scene/index.js';
+import { Dictionary } from "ts-essentials";
+import chainMethods from "../../test-util/chain-methods.js";
+import Scene from "../scene/index.js";
 
 type BuiltAsset = Dictionary<any>;
 
-describe('Asset', () => {
+describe("Asset", () => {
   let asset: Asset;
 
   beforeEach(() => {
     asset = new Asset();
   });
 
-  it('contains an asset section', () => {
+  it("contains an asset section", () => {
     const generated = asset.build();
 
-    generated.should.have.property('asset');
+    generated.should.have.property("asset");
   });
 
-  it('specifies a version', () => {
+  it("specifies a version", () => {
     const generated = asset.build();
 
-    (generated as BuiltAsset).asset.should.have.property('version', '2.0');
+    (generated as BuiltAsset).asset.should.have.property("version", "2.0");
   });
 
-  it('represents indexed entities at the top level', () => {
+  it("represents indexed entities at the top level", () => {
     const indexerStub = createStubInstance(Indexer);
     indexerStub.buildIndexedEntities.returns({
-      plumbus: ['p1'],
-      schmeckel: ['s1', 's2']
+      plumbus: ["p1"],
+      schmeckel: ["s1", "s2"],
     });
 
     const generated = asset.build(indexerStub);
 
-    generated.should.have.property('plumbus');
-    generated.should.have.property('schmeckel');
+    generated.should.have.property("plumbus");
+    generated.should.have.property("schmeckel");
     (generated as BuiltAsset).plumbus.length.should.equal(1);
     (generated as BuiltAsset).schmeckel.length.should.equal(2);
   });
 
-  it('can have its setters chained', () => {
-    chainMethods(asset, ['getAssetDefinition']).should.equal(asset);
+  it("can have its setters chained", () => {
+    chainMethods(asset, ["getAssetDefinition"]).should.equal(asset);
   });
 
-  describe('contains a list of scenes', () => {
-    it('has no scenes property by default', () => {
-      asset.build().should.not.have.property('scenes');
+  describe("contains a list of scenes", () => {
+    it("has no scenes property by default", () => {
+      asset.build().should.not.have.property("scenes");
     });
 
-    it('can have scenes added', () => {
+    it("can have scenes added", () => {
       const sceneStub = createStubInstance(Scene);
-      sceneStub.getIndexName.returns('scenes');
+      sceneStub.getIndexName.returns("scenes");
 
       const builtScene = {};
       sceneStub.build.returns(builtScene);
@@ -65,17 +65,17 @@ describe('Asset', () => {
 
       const generated = asset.build();
 
-      generated.should.have.property('scenes');
+      generated.should.have.property("scenes");
       sceneStub.build.should.be.calledOnce();
       (generated as BuiltAsset).scenes.length.should.equal(1);
       (generated as BuiltAsset).scenes[0].should.equal(builtScene);
     });
 
-    it('indexes scenes before building', () => {
+    it("indexes scenes before building", () => {
       const scene1 = createStubInstance(Scene);
-      scene1.getIndexName.returns('scenes');
+      scene1.getIndexName.returns("scenes");
       const scene2 = createStubInstance(Scene);
-      scene2.getIndexName.returns('scenes');
+      scene2.getIndexName.returns("scenes");
 
       const indexer = new Indexer();
       indexer.index = spy(indexer.index);

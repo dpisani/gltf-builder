@@ -1,7 +1,7 @@
-import 'should';
-import validator from 'gltf-validator';
-import { describe, it, before } from 'mocha';
-import fs from 'fs';
+import "should";
+import validator from "gltf-validator";
+import { describe, it, before } from "mocha";
+import fs from "fs";
 
 import {
   Asset,
@@ -14,18 +14,18 @@ import {
   buildUIntAccessor,
   buildVec3Accessor,
   buildVec2Accessor,
-  buildTextureFromArrayBuffer
-} from '../index.js';
+  buildTextureFromArrayBuffer,
+} from "../index.js";
 
-import testFixture from 'test-fixture';
+import testFixture from "test-fixture";
 
 const fixtures = testFixture();
 
-describe('Textured quad integration test', () => {
+describe("Textured quad integration test", () => {
   let asset: Asset;
 
   before(() => {
-    const imageBuffer = fs.readFileSync(fixtures.resolve('small_texture.png'));
+    const imageBuffer = fs.readFileSync(fixtures.resolve("small_texture.png"));
 
     asset = new Asset().addScene(
       new Scene().addNode(
@@ -33,7 +33,12 @@ describe('Textured quad integration test', () => {
           new Mesh().addPrimitive(
             new Primitive()
               .position(
-                buildVec3Accessor([[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]])
+                buildVec3Accessor([
+                  [0, 0, 0],
+                  [1, 0, 0],
+                  [0, 1, 0],
+                  [1, 1, 0],
+                ]),
               )
               .indices(buildUIntAccessor([0, 1, 2, 2, 1, 3]))
               .texcoord(
@@ -41,30 +46,30 @@ describe('Textured quad integration test', () => {
                   Float32Array.of(0, 0),
                   Float32Array.of(1, 0),
                   Float32Array.of(0, 1),
-                  Float32Array.of(1, 1)
-                ])
+                  Float32Array.of(1, 1),
+                ]),
               )
               .material(
                 new Material().metallicRoughness(
                   new MetallicRoughness().baseColorTexture(
-                    buildTextureFromArrayBuffer(imageBuffer, 'image/png')
-                      .textureInfo
-                  )
-                )
-              )
-          )
-        )
-      )
+                    buildTextureFromArrayBuffer(imageBuffer, "image/png")
+                      .textureInfo,
+                  ),
+                ),
+              ),
+          ),
+        ),
+      ),
     );
   });
 
-  it('can build a valid asset', async () => {
+  it("can build a valid asset", async () => {
     const gltf = asset.build();
 
     await validator.validateString(JSON.stringify(gltf)).should.be.resolved;
   });
 
-  it('creates a texture resource in the output', () => {
+  it("creates a texture resource in the output", () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const gltf: any = asset.build();
 

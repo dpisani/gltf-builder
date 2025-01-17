@@ -1,6 +1,9 @@
-import lodash from 'lodash';
+import lodash from "lodash";
 
 const { pickBy, isNil, isArray, isEmpty } = lodash;
 
 export default (object: object | null | undefined) =>
-  pickBy(object, value => !isNil(value) && !(isArray(value) && isEmpty(value)));
+  pickBy(
+    object,
+    (value) => !isNil(value) && !(isArray(value) && isEmpty(value)),
+  );

@@ -1,7 +1,7 @@
-import NamedComponent from '../named-component/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import Indexer from '../asset/indexer/index.js';
-import Buffer from '../buffer/index.js';
+import NamedComponent from "../named-component/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import Indexer from "../asset/indexer/index.js";
+import Buffer from "../buffer/index.js";
 
 /**
  * BufferView - a builder for a GLTF buffer view object
@@ -13,7 +13,7 @@ export default class BufferView extends NamedComponent<{
   buffer: Buffer;
 }> {
   constructor() {
-    super({ indexName: 'bufferViews' });
+    super({ indexName: "bufferViews" });
   }
 
   /**
@@ -44,7 +44,7 @@ export default class BufferView extends NamedComponent<{
     const { buffer, ...properties } = this.properties;
     return pickBuiltProperties({
       ...properties,
-      buffer: buffer && indexer.indexOf(buffer)
+      buffer: buffer && indexer.indexOf(buffer),
     });
   }
 }

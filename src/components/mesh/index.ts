@@ -1,7 +1,7 @@
-import NamedComponent from '../named-component/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import Primitive from '../primitive/index.js';
-import Indexer from '../asset/indexer/index.js';
+import NamedComponent from "../named-component/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import Primitive from "../primitive/index.js";
+import Indexer from "../asset/indexer/index.js";
 
 /**
  * Mesh - a builder for a GLTF mesh object, containing a set of primitives to be rendered
@@ -10,7 +10,7 @@ import Indexer from '../asset/indexer/index.js';
  */
 export default class Mesh extends NamedComponent<{ primitives: Primitive[] }> {
   constructor() {
-    super({ indexName: 'meshes', defaultProperties: { primitives: [] } });
+    super({ indexName: "meshes", defaultProperties: { primitives: [] } });
   }
 
   /**
@@ -29,7 +29,7 @@ export default class Mesh extends NamedComponent<{ primitives: Primitive[] }> {
     const { primitives, ...properties } = this.properties;
     return pickBuiltProperties({
       ...properties,
-      primitives: primitives?.map(primitive => primitive.build(indexer))
+      primitives: primitives?.map((primitive) => primitive.build(indexer)),
     });
   }
 }

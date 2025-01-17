@@ -1,7 +1,7 @@
-import Buffer from '../../../components/buffer/index.js';
-import BufferView from '../../../components/buffer-view/index.js';
+import Buffer from "../../../components/buffer/index.js";
+import BufferView from "../../../components/buffer-view/index.js";
 
-import bufferViewFromArrayUnwired from './unwired.js';
+import bufferViewFromArrayUnwired from "./unwired.js";
 
 /**
  * Creates an accessor for primitive indices

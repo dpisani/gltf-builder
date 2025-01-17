@@ -1,7 +1,7 @@
-import ComponentBase from '../component-base/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import Texture from '../texture/index.js';
-import Indexer from '../asset/indexer/index.js';
+import ComponentBase from "../component-base/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import Texture from "../texture/index.js";
+import Indexer from "../asset/indexer/index.js";
 
 /**
  * TextureInfo - A builder for a GLTF TextureInfo object
@@ -51,7 +51,7 @@ export default class TextureInfo extends ComponentBase<{
 
     return pickBuiltProperties({
       ...properties,
-      index: texture && indexer.indexOf(texture)
+      index: texture && indexer.indexOf(texture),
     });
   }
 }

@@ -59,14 +59,32 @@ describe('Node', () => {
       node.build(indexStub).should.have.property('translation', [1, 2, 3]);
     });
 
+    it('can have its translation set with an array', () => {
+      node.translation([1, 2, 3]);
+
+      node.build(indexStub).should.have.property('translation', [1, 2, 3]);
+    });
+
     it('can have its rotation set', () => {
       node.rotation(1, 2, 3, 4);
 
       node.build(indexStub).should.have.property('rotation', [1, 2, 3, 4]);
     });
 
+    it('can have its rotation set with an array', () => {
+      node.rotation([1, 2, 3, 4]);
+
+      node.build(indexStub).should.have.property('rotation', [1, 2, 3, 4]);
+    });
+
     it('can have its scale set', () => {
       node.scale(1, 2, 3);
+
+      node.build(indexStub).should.have.property('scale', [1, 2, 3]);
+    });
+
+    it('can have its scale set with an array', () => {
+      node.scale([1, 2, 3]);
 
       node.build(indexStub).should.have.property('scale', [1, 2, 3]);
     });

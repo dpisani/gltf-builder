@@ -3,7 +3,7 @@ const getAllMethodNames = (object: object): Set<string> => {
   let obj: object | null = object;
   while ((obj = Reflect.getPrototypeOf(obj))) {
     const keys = Reflect.ownKeys(obj);
-    keys.forEach(k => typeof k === 'string' && methods.add(k));
+    keys.forEach((k) => typeof k === "string" && methods.add(k));
 
     if (Reflect.getPrototypeOf(obj) === Object.prototype) break;
   }
@@ -12,7 +12,10 @@ const getAllMethodNames = (object: object): Set<string> => {
 
 export default (component: object, exclude?: string[]) => {
   const functions = Array.from(getAllMethodNames(component)).filter(
-    fn => !['build', 'getIndexName', 'constructor', ...(exclude ?? [])].includes(fn)
+    (fn) =>
+      !["build", "getIndexName", "constructor", ...(exclude ?? [])].includes(
+        fn,
+      ),
   );
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,16 +1,24 @@
-import ComponentBase from '../component-base/index.js';
+import ComponentBase from "../component-base/index.js";
 
 export default class NamedComponent<
-  ComponentProperties extends Record<string, unknown> & {name? : never}
-> extends ComponentBase<  ComponentProperties  extends {name: string} ? never : Omit<ComponentProperties, "name"> & {name? : string} > {
+  ComponentProperties extends Record<string, unknown> & { name?: never },
+> extends ComponentBase<
+  ComponentProperties extends { name: string }
+    ? never
+    : Omit<ComponentProperties, "name"> & { name?: string }
+> {
   private indexName: string;
 
   constructor({
     indexName,
-    defaultProperties
+    defaultProperties,
   }: {
     indexName?: string;
-    defaultProperties?: Partial<ComponentProperties  extends {name: string} ? never : Omit<ComponentProperties, "name"> & {name? : string}>;
+    defaultProperties?: Partial<
+      ComponentProperties extends { name: string }
+        ? never
+        : Omit<ComponentProperties, "name"> & { name?: string }
+    >;
   }) {
     super(defaultProperties);
 

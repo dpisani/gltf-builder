@@ -1,8 +1,8 @@
-import NamedComponent from '../named-component/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import BufferView from '../buffer-view/index.js';
-import Indexer from '../asset/indexer/index.js';
-import { ValueOf } from 'ts-essentials';
+import NamedComponent from "../named-component/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import BufferView from "../buffer-view/index.js";
+import Indexer from "../asset/indexer/index.js";
+import { ValueOf } from "ts-essentials";
 
 /**
  * Accessor component types
@@ -17,7 +17,7 @@ const componentTypes = {
   SHORT: 5122,
   UNSIGNED_SHORT: 5123,
   UNSIGNED_INT: 5125,
-  FLOAT: 5126
+  FLOAT: 5126,
 } as const;
 
 type ComponentType = ValueOf<typeof componentTypes>;
@@ -30,13 +30,13 @@ type ComponentType = ValueOf<typeof componentTypes>;
  * @static
  */
 const types = {
-  SCALAR: 'SCALAR',
-  VEC2: 'VEC2',
-  VEC3: 'VEC3',
-  VEC4: 'VEC4',
-  MAT2: 'MAT2',
-  MAT3: 'MAT3',
-  MAT4: 'MAT4'
+  SCALAR: "SCALAR",
+  VEC2: "VEC2",
+  VEC3: "VEC3",
+  VEC4: "VEC4",
+  MAT2: "MAT2",
+  MAT3: "MAT3",
+  MAT4: "MAT4",
 } as const;
 
 type Type = ValueOf<typeof types>;
@@ -63,7 +63,7 @@ export default class Accessor extends NamedComponent<{
   }
 
   constructor() {
-    super({ indexName: 'accessors' });
+    super({ indexName: "accessors" });
   }
 
   componentType(componentType: ComponentType) {
@@ -114,7 +114,7 @@ export default class Accessor extends NamedComponent<{
     const { bufferView, ...properties } = this.properties;
     return pickBuiltProperties({
       ...properties,
-      bufferView: bufferView && indexer.indexOf(bufferView)
+      bufferView: bufferView && indexer.indexOf(bufferView),
     });
   }
 }

@@ -1,8 +1,8 @@
-import Buffer from '../../../components/buffer/index.js';
-import BufferView from '../../../components/buffer-view/index.js';
-import Accessor from '../../../components/accessor/index.js';
+import Buffer from "../../../components/buffer/index.js";
+import BufferView from "../../../components/buffer-view/index.js";
+import Accessor from "../../../components/accessor/index.js";
 
-import buildUIntAccessorUnwired from './unwired.js';
+import buildUIntAccessorUnwired from "./unwired.js";
 
 /**
  * Creates an accessor for an array of unsigned integers

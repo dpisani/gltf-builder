@@ -1,10 +1,10 @@
-import Buffer from '../../../components/buffer/index.js';
-import BufferView from '../../../components/buffer-view/index.js';
-import Accessor from '../../../components/accessor/index.js';
+import Buffer from "../../../components/buffer/index.js";
+import BufferView from "../../../components/buffer-view/index.js";
+import Accessor from "../../../components/accessor/index.js";
 
-import { Vec3 } from '../../../types/data-types.js';
+import { Vec3 } from "../../../types/data-types.js";
 
-import buildVec3AccessorUnwired from './unwired.js';
+import buildVec3AccessorUnwired from "./unwired.js";
 
 /**
  * Creates an accessor for a 3 component vector array

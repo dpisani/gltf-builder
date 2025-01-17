@@ -1,9 +1,9 @@
-import NamedComponent from '../named-component/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import { ValueOf } from 'ts-essentials';
-import { Vec3 } from '../../types/data-types.js';
-import MetallicRoughness from './metallic-roughness/index.js';
-import Indexer from '../asset/indexer/index.js';
+import NamedComponent from "../named-component/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import { ValueOf } from "ts-essentials";
+import { Vec3 } from "../../types/data-types.js";
+import MetallicRoughness from "./metallic-roughness/index.js";
+import Indexer from "../asset/indexer/index.js";
 
 /**
  * Describes the alpha mode of a material
@@ -13,9 +13,9 @@ import Indexer from '../asset/indexer/index.js';
  * @static
  */
 const alphaModes = {
-  OPAQUE: 'OPAQUE',
-  MASK: 'MASK',
-  BLEND: 'BLEND'
+  OPAQUE: "OPAQUE",
+  MASK: "MASK",
+  BLEND: "BLEND",
 } as const;
 
 type AlphaMode = ValueOf<typeof alphaModes>;
@@ -35,7 +35,7 @@ export default class Material extends NamedComponent<{
   public metallicRoughness: typeof this.pbrMetallicRoughness;
 
   constructor() {
-    super({ indexName: 'materials' });
+    super({ indexName: "materials" });
 
     /**
      * @function Material#metallicRoughness
@@ -122,7 +122,7 @@ export default class Material extends NamedComponent<{
     return pickBuiltProperties({
       pbrMetallicRoughness:
         pbrMetallicRoughness && pbrMetallicRoughness.build(indexer),
-      ...properties
+      ...properties,
     });
   }
 }

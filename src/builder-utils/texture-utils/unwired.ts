@@ -1,10 +1,10 @@
-import BufferType from '../../components/buffer/index.js';
-import BufferViewType from '../../components/buffer-view/index.js';
-import TextureType from '../../components/texture/index.js';
+import BufferType from "../../components/buffer/index.js";
+import BufferViewType from "../../components/buffer-view/index.js";
+import TextureType from "../../components/texture/index.js";
 import TextureImageType, {
-  SupportedMimeType
-} from '../../components/image/index.js';
-import TextureInfoType from '../../components/texture-info/index.js';
+  SupportedMimeType,
+} from "../../components/image/index.js";
+import TextureInfoType from "../../components/texture-info/index.js";
 
 export const buildTextureFromArrayBuffer = (
   arrayBuffer: ArrayBuffer,
@@ -14,14 +14,14 @@ export const buildTextureFromArrayBuffer = (
     BufferView,
     Texture,
     TextureImage,
-    TextureInfo
+    TextureInfo,
   }: {
     Buffer: typeof BufferType;
     BufferView: typeof BufferViewType;
     Texture: typeof TextureType;
     TextureImage: typeof TextureImageType;
     TextureInfo: typeof TextureInfoType;
-  }
+  },
 ) => {
   const bufferView = new BufferView()
     .buffer(new Buffer().data(arrayBuffer))

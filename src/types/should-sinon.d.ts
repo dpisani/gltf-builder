@@ -1,8 +1,8 @@
 /* eslint-disable */
 
-import * as s from 'should';
+import * as s from "should";
 
-declare module 'should' {
+declare module "should" {
   interface Assertion {
     /**
      * Assert stub was called with given object as this always. So if you call stub several times
@@ -84,7 +84,7 @@ declare module 'should' {
 
 // keep backwards compat with earlier DefinitelyTyped release which made these
 // types available
-declare module 'sinon' {
+declare module "sinon" {
   interface SinonSpyCallApi {
     should: ShouldSinonAssertion;
   }

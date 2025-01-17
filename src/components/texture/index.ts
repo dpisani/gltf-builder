@@ -1,8 +1,8 @@
-import NamedComponent from '../named-component/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import Sampler from '../sampler/index.js';
-import TextureImage from '../image/index.js';
-import Indexer from '../asset/indexer/index.js';
+import NamedComponent from "../named-component/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import Sampler from "../sampler/index.js";
+import TextureImage from "../image/index.js";
+import Indexer from "../asset/indexer/index.js";
 
 /**
  * Texture - a builder for a GLTF texture object
@@ -10,12 +10,12 @@ import Indexer from '../asset/indexer/index.js';
  * @hideconstructor
  */
 export default class Texture extends NamedComponent<{
-  indexName: 'textures';
+  indexName: "textures";
   sampler: Sampler;
   source: TextureImage;
 }> {
   constructor() {
-    super({ indexName: 'textures' });
+    super({ indexName: "textures" });
   }
 
   /**
@@ -48,7 +48,7 @@ export default class Texture extends NamedComponent<{
     return pickBuiltProperties({
       ...properties,
       sampler: sampler && indexer.indexOf(sampler),
-      source: source && indexer.indexOf(source)
+      source: source && indexer.indexOf(source),
     });
   }
 }

@@ -1,9 +1,9 @@
-import Accessor from '../../../components/accessor/index.js';
-import { Vec4 } from '../../../types/data-types.js';
+import Accessor from "../../../components/accessor/index.js";
+import { Vec4 } from "../../../types/data-types.js";
 
-import { bufferViewFromArray } from '../../data-utils/index.js';
+import { bufferViewFromArray } from "../../data-utils/index.js";
 
-import buildVec4AccessorUnwired from './unwired.js';
+import buildVec4AccessorUnwired from "./unwired.js";
 
 /**
  * Creates an accessor for a 4 component vector array

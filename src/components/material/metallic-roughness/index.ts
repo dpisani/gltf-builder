@@ -1,8 +1,8 @@
-import ComponentBase from '../../component-base/index.js';
-import pickBuiltProperties from '../../../util/pick-built-properties.js';
-import { Vec4 } from '../../../types/data-types.js';
-import Indexer from '../../asset/indexer/index.js';
-import TextureInfo from '../../texture-info/index.js';
+import ComponentBase from "../../component-base/index.js";
+import pickBuiltProperties from "../../../util/pick-built-properties.js";
+import { Vec4 } from "../../../types/data-types.js";
+import Indexer from "../../asset/indexer/index.js";
+import TextureInfo from "../../texture-info/index.js";
 
 /**
  * MetallicRoughness - a builder for a GLTF pbrMetallicRoughness object
@@ -93,24 +93,21 @@ export default class MetallicRoughness extends ComponentBase<{
    * @returns {MetallicRoughness} this
    */
   metallicRoughnessTexture(
-    metallicRoughnessTexture: TextureInfo
+    metallicRoughnessTexture: TextureInfo,
   ): MetallicRoughness {
     this.properties.metallicRoughnessTexture = metallicRoughnessTexture;
     return this;
   }
 
   build(indexer: Indexer) {
-    const {
-      baseColorTexture,
-      metallicRoughnessTexture,
-      ...properties
-    } = this.properties;
+    const { baseColorTexture, metallicRoughnessTexture, ...properties } =
+      this.properties;
 
     return pickBuiltProperties({
       ...properties,
       baseColorTexture: baseColorTexture && baseColorTexture.build(indexer),
       metallicRoughnessTexture:
-        metallicRoughnessTexture && metallicRoughnessTexture.build(indexer)
+        metallicRoughnessTexture && metallicRoughnessTexture.build(indexer),
     });
   }
 }

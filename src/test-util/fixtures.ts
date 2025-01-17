@@ -1,8 +1,8 @@
-import Asset from '../components/asset/index.js';
-import Scene from '../components/scene/index.js';
-import Node from '../components/node/index.js';
-import Mesh from '../components/mesh/index.js';
-import Primitive from '../components/primitive/index.js';
+import Asset from "../components/asset/index.js";
+import Scene from "../components/scene/index.js";
+import Node from "../components/node/index.js";
+import Mesh from "../components/mesh/index.js";
+import Primitive from "../components/primitive/index.js";
 
 export const createAssetFixture = () => new Asset();
 

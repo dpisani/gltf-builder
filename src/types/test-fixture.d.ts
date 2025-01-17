@@ -1,4 +1,4 @@
-declare module 'test-fixture' {
+declare module "test-fixture" {
   type Fixtures = {
     resolve: (path?: string) => string;
   };

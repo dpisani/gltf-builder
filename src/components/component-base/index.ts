@@ -1,19 +1,18 @@
-import lodash from 'lodash';
-import Indexer from '../asset/indexer/index.js';
+import lodash from "lodash";
+import Indexer from "../asset/indexer/index.js";
 
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-
+import pickBuiltProperties from "../../util/pick-built-properties.js";
 
 const { cloneDeep } = lodash;
 
 export default class ComponentBase<
-  ComponentProperties extends Record<string, unknown>
+  ComponentProperties extends Record<string, unknown>,
 > {
   protected properties: Partial<ComponentProperties>;
 
   constructor(defaultProperties?: Partial<ComponentProperties>) {
     this.properties = {
-      ...(defaultProperties ?? {} as Partial<ComponentProperties>)
+      ...(defaultProperties ?? ({} as Partial<ComponentProperties>)),
     };
   }
 

@@ -1,9 +1,9 @@
-import ComponentBase from '../component-base/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import { ValueOf } from 'ts-essentials';
-import Accessor from '../accessor/index.js';
-import Indexer from '../asset/indexer/index.js';
-import Material from '../material/index.js';
+import ComponentBase from "../component-base/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import { ValueOf } from "ts-essentials";
+import Accessor from "../accessor/index.js";
+import Indexer from "../asset/indexer/index.js";
+import Material from "../material/index.js";
 
 /**
  * Rendering modes for a primitive. All values correspond to WebGL enum values.
@@ -19,7 +19,7 @@ const modes = {
   LINE_STRIP: 3,
   TRIANGLES: 4,
   TRIANGLE_STRIP: 5,
-  TRIANGLE_FAN: 6
+  TRIANGLE_FAN: 6,
 } as const;
 
 type RenderingMode = ValueOf<typeof modes>;
@@ -41,7 +41,7 @@ export default class Primitive extends ComponentBase<{
     [texcoord: `WEIGHTS_${number}`]: Accessor;
   };
   indices: Accessor;
-    material: Material;
+  material: Material;
 }> {
   public colour: typeof this.color;
 
@@ -67,17 +67,20 @@ export default class Primitive extends ComponentBase<{
   }
 
   position(position: Accessor) {
-    if (this.properties.attributes){this.properties.attributes.POSITION = position;}
+    if (this.properties.attributes) {
+      this.properties.attributes.POSITION = position;
+    }
     return this;
   }
 
   normal(normal: Accessor) {
-    if (this.properties.attributes)this.properties.attributes.NORMAL = normal;
+    if (this.properties.attributes) this.properties.attributes.NORMAL = normal;
     return this;
   }
 
   tangent(tangent: Accessor) {
-    if (this.properties.attributes)this.properties.attributes.TANGENT = tangent;
+    if (this.properties.attributes)
+      this.properties.attributes.TANGENT = tangent;
     return this;
   }
 
@@ -89,7 +92,8 @@ export default class Primitive extends ComponentBase<{
    * @returns {Primitive} this
    */
   texcoord(texcoord: Accessor, index: number = 0): Primitive {
-    if (this.properties.attributes)this.properties.attributes[`TEXCOORD_${index}`] = texcoord;
+    if (this.properties.attributes)
+      this.properties.attributes[`TEXCOORD_${index}`] = texcoord;
     return this;
   }
 
@@ -101,7 +105,8 @@ export default class Primitive extends ComponentBase<{
    * @returns {Primitive} this
    */
   color(color: Accessor, index: number = 0): Primitive {
-    if (this.properties.attributes)this.properties.attributes[`COLOR_${index}`] = color;
+    if (this.properties.attributes)
+      this.properties.attributes[`COLOR_${index}`] = color;
     return this;
   }
 
@@ -113,7 +118,8 @@ export default class Primitive extends ComponentBase<{
    * @returns {Primitive} this
    */
   joints(joints: Accessor, index: number = 0): Primitive {
-    if (this.properties.attributes)this.properties.attributes[`JOINTS_${index}`] = joints;
+    if (this.properties.attributes)
+      this.properties.attributes[`JOINTS_${index}`] = joints;
     return this;
   }
 
@@ -125,7 +131,8 @@ export default class Primitive extends ComponentBase<{
    * @returns {Primitive} this
    */
   weights(weights: Accessor, index: number = 0): Primitive {
-    if (this.properties.attributes)this.properties.attributes[`WEIGHTS_${index}`] = weights;
+    if (this.properties.attributes)
+      this.properties.attributes[`WEIGHTS_${index}`] = weights;
     return this;
   }
 
@@ -157,8 +164,11 @@ export default class Primitive extends ComponentBase<{
   build(indexer: Indexer) {
     const { attributes, ...properties } = this.properties;
 
-    const indexedAttributes = Object.entries(attributes ?? {}).map(([attribute, accessor]) =>
-      [attribute, accessor && indexer.indexOf(accessor)]
+    const indexedAttributes = Object.entries(attributes ?? {}).map(
+      ([attribute, accessor]) => [
+        attribute,
+        accessor && indexer.indexOf(accessor),
+      ],
     );
 
     const { indices, material, ...nonIndexedProperties } = properties;
@@ -167,7 +177,7 @@ export default class Primitive extends ComponentBase<{
       ...nonIndexedProperties,
       indices: indices && indexer.indexOf(indices),
       material: material && indexer.indexOf(material),
-      attributes: Object.fromEntries(indexedAttributes)
+      attributes: Object.fromEntries(indexedAttributes),
     });
   }
 }

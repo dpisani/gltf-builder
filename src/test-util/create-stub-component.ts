@@ -1,17 +1,17 @@
-import { stub, SinonStub } from 'sinon';
-import Indexer from '../components/asset/indexer/index.js';
-import { Newable } from 'ts-essentials';
+import { stub, SinonStub } from "sinon";
+import Indexer from "../components/asset/indexer/index.js";
+import { Newable } from "ts-essentials";
 
 export default <
   SetterNames extends string,
   BuildResultType,
   T extends Newable<{
-    build: ((indexer: Indexer) => BuildResultType);
-  }>
+    build: (indexer: Indexer) => BuildResultType;
+  }>,
 >(
   Component: T,
   setterNames: SetterNames[] = [],
-  buildResult: BuildResultType | undefined = undefined
+  buildResult: BuildResultType | undefined = undefined,
 ): {
   StubClass: Newable<
     { [x in SetterNames]: SinonStub } & {
@@ -29,7 +29,7 @@ export default <
         this.build = () => {
           if (buildResult === undefined) {
             throw new Error(
-              'buildResult needs to be given to createStubComponent'
+              "buildResult needs to be given to createStubComponent",
             );
           }
           return buildResult;
@@ -40,6 +40,6 @@ export default <
         }
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any
+    } as any,
   };
 };

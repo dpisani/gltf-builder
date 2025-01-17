@@ -1,10 +1,10 @@
-import NamedComponent from '../named-component/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
-import { ValueOf } from 'ts-essentials';
-import BufferView from '../buffer-view/index.js';
-import Indexer from '../asset/indexer/index.js';
+import NamedComponent from "../named-component/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
+import { ValueOf } from "ts-essentials";
+import BufferView from "../buffer-view/index.js";
+import Indexer from "../asset/indexer/index.js";
 
-const supportedMimeTypes = ['image/jpeg', 'image/png'] as const;
+const supportedMimeTypes = ["image/jpeg", "image/png"] as const;
 
 export type SupportedMimeType = ValueOf<typeof supportedMimeTypes>;
 
@@ -19,7 +19,7 @@ export default class TextureImage extends NamedComponent<{
   bufferView: BufferView;
 }> {
   constructor() {
-    super({ indexName: 'images' });
+    super({ indexName: "images" });
   }
 
   /**
@@ -43,7 +43,7 @@ export default class TextureImage extends NamedComponent<{
   mimeType(mimeType: SupportedMimeType): TextureImage {
     if (![...supportedMimeTypes, undefined].includes(mimeType)) {
       throw new Error(
-        'Unsupported mimeType given to TextureImage. Allowed values are ["image/jpeg", "image/png"]'
+        'Unsupported mimeType given to TextureImage. Allowed values are ["image/jpeg", "image/png"]',
       );
     }
 
@@ -69,13 +69,13 @@ export default class TextureImage extends NamedComponent<{
 
     if (bufferView && !properties.mimeType) {
       throw new Error(
-        'Cannot build TextureImage. Component was supplied with a buffer view and no mime type'
+        "Cannot build TextureImage. Component was supplied with a buffer view and no mime type",
       );
     }
 
     return pickBuiltProperties({
       ...properties,
-      bufferView: bufferView && indexer.indexOf(bufferView)
+      bufferView: bufferView && indexer.indexOf(bufferView),
     });
   }
 }

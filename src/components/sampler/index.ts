@@ -1,5 +1,5 @@
-import { ValueOf } from 'ts-essentials';
-import NamedComponent from '../named-component/index.js';
+import { ValueOf } from "ts-essentials";
+import NamedComponent from "../named-component/index.js";
 
 /**
  * Magnification filter types. All values correspond to WebGL enum values.
@@ -10,7 +10,7 @@ import NamedComponent from '../named-component/index.js';
  */
 const magFilterTypes = {
   NEAREST: 9728,
-  LINEAR: 9729
+  LINEAR: 9729,
 } as const;
 
 type MagFilterType = ValueOf<typeof magFilterTypes>;
@@ -28,7 +28,7 @@ const minFilterTypes = {
   NEAREST_MIPMAP_NEAREST: 9984,
   LINEAR_MIPMAP_NEAREST: 9985,
   NEAREST_MIPMAP_LINEAR: 9986,
-  LINEAR_MIPMAP_LINEAR: 9987
+  LINEAR_MIPMAP_LINEAR: 9987,
 } as const;
 
 type MinFilterType = ValueOf<typeof minFilterTypes>;
@@ -43,7 +43,7 @@ type MinFilterType = ValueOf<typeof minFilterTypes>;
 const wrapModes = {
   CLAMP_TO_EDGE: 33071,
   MIRRORED_REPEAT: 33648,
-  REPEAT: 10497
+  REPEAT: 10497,
 } as const;
 
 type WrapMode = ValueOf<typeof wrapModes>;
@@ -73,7 +73,7 @@ export default class Sampler extends NamedComponent<{
   }
 
   constructor() {
-    super({ indexName: 'samplers' });
+    super({ indexName: "samplers" });
   }
 
   /**

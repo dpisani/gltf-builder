@@ -1,7 +1,7 @@
-import ComponentBase from '../component-base/index.js';
-import Scene from '../scene/index.js';
+import ComponentBase from "../component-base/index.js";
+import Scene from "../scene/index.js";
 
-import Indexer from './indexer/index.js';
+import Indexer from "./indexer/index.js";
 
 /**
  * Asset - a builder for a glTF asset object. This should be the root object used to build the final product.
@@ -15,8 +15,8 @@ export default class Asset extends ComponentBase<{ scenes: Scene[] }> {
 
   private getAssetDefinition() {
     return {
-      version: '2.0',
-      generator: 'gltf-builder'
+      version: "2.0",
+      generator: "gltf-builder",
     };
   }
 
@@ -27,11 +27,11 @@ export default class Asset extends ComponentBase<{ scenes: Scene[] }> {
    */
   build(
     /** @ignore */
-    indexer?: Indexer
+    indexer?: Indexer,
   ): object {
     const indexBuilder = indexer || new Indexer();
 
-    this.properties.scenes?.forEach(o => indexBuilder.index(o));
+    this.properties.scenes?.forEach((o) => indexBuilder.index(o));
 
     const builtIndices = indexBuilder.buildIndexedEntities();
 

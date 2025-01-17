@@ -1,20 +1,20 @@
-import AccessorType from '../../../components/accessor/index.js';
-import BufferViewType from '../../../components/buffer-view/index.js';
-import BufferType from '../../../components/buffer/index.js';
-import { Vec2 } from '../../../types/data-types.js';
-import { getMinMaxVectors } from '../getMinMaxVectors.js';
+import AccessorType from "../../../components/accessor/index.js";
+import BufferViewType from "../../../components/buffer-view/index.js";
+import BufferType from "../../../components/buffer/index.js";
+import { Vec2 } from "../../../types/data-types.js";
+import { getMinMaxVectors } from "../getMinMaxVectors.js";
 
 export default (
   points: Vec2[],
   {
     Accessor,
     BufferView,
-    Buffer
+    Buffer,
   }: {
     Accessor: typeof AccessorType;
     BufferView: typeof BufferViewType;
     Buffer: typeof BufferType;
-  }
+  },
 ) => {
   const { min, max } = getMinMaxVectors(points, 2);
 

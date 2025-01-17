@@ -1,14 +1,14 @@
-import 'should';
-import validator from 'gltf-validator';
-import { describe, it, beforeEach } from 'mocha';
+import "should";
+import validator from "gltf-validator";
+import { describe, it, beforeEach } from "mocha";
 
-import Node from '../node/index.js';
+import Node from "../node/index.js";
 
-import { createSceneFixture } from '../../test-util/fixtures.js';
-import Asset from '../asset/index.js';
-import Scene from '../scene/index.js';
+import { createSceneFixture } from "../../test-util/fixtures.js";
+import Asset from "../asset/index.js";
+import Scene from "../scene/index.js";
 
-describe('Scene generator GLTF output', () => {
+describe("Scene generator GLTF output", () => {
   let asset: Asset;
   let scene: Scene;
 
@@ -17,15 +17,15 @@ describe('Scene generator GLTF output', () => {
     asset = fixture.asset;
     scene = fixture.scene;
   });
-  it('is valid with no attributes set', async () => {
+  it("is valid with no attributes set", async () => {
     const generated = asset.build();
 
     await validator.validateString(JSON.stringify(generated)).should.be
       .resolved;
   });
 
-  it('is valid with name set', async () => {
-    scene.name('scene name');
+  it("is valid with name set", async () => {
+    scene.name("scene name");
 
     const generated = asset.build();
 
@@ -33,8 +33,8 @@ describe('Scene generator GLTF output', () => {
       .resolved;
   });
 
-  describe('nodes', () => {
-    it('is valid with a node added', async () => {
+  describe("nodes", () => {
+    it("is valid with a node added", async () => {
       scene.addNode(new Node());
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,7 +46,7 @@ describe('Scene generator GLTF output', () => {
         .resolved;
     });
 
-    it('is valid with multiple nodes added', async () => {
+    it("is valid with multiple nodes added", async () => {
       scene.addNode(new Node());
       scene.addNode(new Node());
       scene.addNode(new Node());

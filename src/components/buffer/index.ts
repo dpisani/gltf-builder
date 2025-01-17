@@ -1,7 +1,7 @@
-import NamedComponent from '../named-component/index.js';
-import pickBuiltProperties from '../../util/pick-built-properties.js';
+import NamedComponent from "../named-component/index.js";
+import pickBuiltProperties from "../../util/pick-built-properties.js";
 
-import { fromByteArray } from 'base64-js';
+import { fromByteArray } from "base64-js";
 
 /**
  * Buffer - a builder for a GLTF buffer object
@@ -11,7 +11,7 @@ import { fromByteArray } from 'base64-js';
  */
 export default class Buffer extends NamedComponent<{ data: ArrayBuffer }> {
   constructor() {
-    super({ indexName: 'buffers' });
+    super({ indexName: "buffers" });
   }
 
   /**
@@ -39,7 +39,7 @@ export default class Buffer extends NamedComponent<{ data: ArrayBuffer }> {
     return pickBuiltProperties({
       ...properties,
       uri: buildDataUri(),
-      byteLength: data ? data.byteLength : 1
+      byteLength: data ? data.byteLength : 1,
     });
   }
 }
