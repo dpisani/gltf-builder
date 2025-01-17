@@ -15,14 +15,14 @@ npm install gltf-builder
 The gltf-builder package contains builders for various [glTF components](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#properties-reference) used to construct a 3D asset. Each component allows for all of its properties to be set in a chaining style syntax, and can be then composed together to make the final product.
 
 ```js
-const {
+import {
   Asset,
   Scene,
   Mesh,
   Node,
   Primitive,
   buildVec3Accessor
-} = require('gltf-builder');
+} from 'gltf-builder';
 
 const triangleAsset = new Asset().addScene(
   new Scene().addNode(
@@ -40,7 +40,7 @@ const triangleAsset = new Asset().addScene(
 const gltf = triangleAsset.build();
 
 // Saving to a file
-const fs = require('fs');
+import { writeFileSync } from 'fs';
 fs.writeFileSync('triangle.gltf', JSON.stringify(gltf), 'utf8');
 ```
 
