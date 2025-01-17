@@ -1,6 +1,6 @@
 {
   "name": "gltf-builder",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A builder for the GLTF 3D transmission format",
   "author": "Dean Pisani",
   "license": "MIT",

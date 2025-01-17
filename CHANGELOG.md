@@ -1,5 +1,11 @@
 # gltf-builder
 
+## 0.9.0
+
+### Minor Changes
+
+- 997785c: Setters for the Node component allow vectors and matrices formatted as arrays or typed arrays
+
 ## 0.8.0
 
 ### Minor Changes
